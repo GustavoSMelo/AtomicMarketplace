@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { FaSearch } from 'react-icons/fa'
 import './style.css'
 
 const Navbar = () => {
@@ -20,14 +21,16 @@ const Navbar = () => {
             Sapatos
           </h2>
         </Link>
+      </nav>
 
-        <Link className='Link' to='/'>
-          <h2>Cadastre-se</h2>
+      <section>
+        <Link className='search' to='/'>
+          <FaSearch />
         </Link>
         <Link className='Button' to='/'>
           <h2>Login</h2>
         </Link>
-      </nav>
+      </section>
     </header>
   )
 }
