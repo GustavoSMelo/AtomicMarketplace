@@ -58,6 +58,7 @@
   margin-bottom: 5px;
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .RowContainer > h1, h2{
@@ -80,24 +81,55 @@
   margin-bottom: 15px;
 }
 
-.commentaryContainer{
+.ReviewContainer{
   display: flex;
   width: 90%;
   margin-top: 50px;
   flex-direction: column;
 }
 
-.commentaryContainer > h1{
+.ReviewContainer > h1{
   font-size: 28pt;
 }
 
-.commentary{
-  background-color: #acacac;
-  padding: 15px;
+.Review{
+  background-color: #dedede;
+  padding: 25px;
   margin-top: 10px;
   border-radius: 5px;
+  list-style-type: none;
+  width: 100%;
 }
 
-.commentary > h1{
+.Review > h1{
   font-size: 32pt;
+}
+
+.Review > .RowContainer > figure{
+  width: 80px;
+  border-radius: 120px;
+  height: 80px;
+}
+
+.Review > .RowContainer > figure > img {
+  width: 80px;
+  border-radius: 120px;
+  height: 80px;
+}
+
+.Review > .RowContainer > h1{
+  margin-left: 20px;
+}
+
+.commentary{
+  font-size: 16pt;
+  text-align: justify;
+  line-height: 30px;
+}
+
+.Review > small{
+  margin-top: 15px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 18pt;
 }
