@@ -1,42 +1,80 @@
 @charset "utf-8";
 
 header {
-  padding: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   position: fixed;
-  background-color: #402F7A;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   width: 100%;
-  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
+figure{
+  margin-left: 20px;
+  margin-right: 15px;
+  padding-top: 10px;
+}
 
 nav{
   display: flex;
   flex-direction: row;
   margin-right: 30px;
-  font-size: 10pt;
+  align-items: center;
+  justify-content: center;
 }
 
+
 .Link{
-  color: #fff;
+  padding-top: 15px;
+  color: #000;
   cursor: pointer;
   text-decoration: none;
-  margin: 15px;
+  margin-right: 15px;
+  height: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.Link > h2{
+  padding-top: 10px;
+  font-size: 14pt;
+  font-weight: bold;
+}
+
+.Link:hover{
+  border-bottom: solid #000 1.5px;
+  background-color: #eaeaea;
 }
 
 .Button{
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-bottom: 15px;
+  padding-top: 15px;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: #fff;
-  color: #000;
-  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
   display: flex;
   align-items: center;
   flex-direction: center;
   text-decoration: none;
+}
+
+.Button > h2{
+  font-size: 12pt !important;
+}
+
+section{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+section > .search{
+  margin-right: 15px;
+  font-size: 14pt;
+  font-weight: bold;
+  color: #000;
 }
