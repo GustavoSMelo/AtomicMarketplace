@@ -1,0 +1,16 @@
+.input-data{
+  font-size: 20px;
+  padding: 2rem;
+  width:20rem;
+  border-width: 3px;
+  border-radius: 2px;
+  border-top: 0px;
+  border-right: 0px;
+  border-left: 0px;
+  border-color: #161616;
+  background-color: #ffff;
+}
+.input-data{
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
