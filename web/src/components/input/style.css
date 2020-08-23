@@ -8,9 +8,7 @@
   border-right: 0px;
   border-left: 0px;
   border-color: #161616;
-  background-color: #ffff;
-}
-.input-data{
+  background-color:transparent;
   margin-bottom: 1rem;
   cursor: pointer;
 }
