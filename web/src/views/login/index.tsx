@@ -23,7 +23,7 @@ const login = () => {
             <Input type="password" placeholder="Senha" />
 
             <button type="button" className="btn-entrar"> Entrar</button> <br />
-            <Link className="link-register" to="user/singup">
+            <Link className="link-register" to="/signup">
               <FaSignInAlt fontSize={15} /> Realizar Cadastro
             </Link>
           </form>
