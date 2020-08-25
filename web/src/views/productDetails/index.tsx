@@ -1,7 +1,7 @@
 import React from 'react'
 import './style.css'
 import Header from '../../components/navbar'
-import { FaCartPlus, FaRegHeart, FaStar } from 'react-icons/fa'
+import { FaShoppingBag, FaRegHeart, FaStar } from 'react-icons/fa'
 
 const Details = () => {
   return (
@@ -26,7 +26,7 @@ const Details = () => {
               <h1 data-testid='price'>BRL 120.00</h1> <h2 data-testid='amount'>15 restantes</h2>
             </section>
             <button type='button' className='cart' data-testid='cart'>
-              <FaCartPlus /> Add in cart
+              <FaShoppingBag /> Adiciona na sacola
             </button>
           </aside>
         </article>
