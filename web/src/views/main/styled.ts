@@ -1,4 +1,14 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const bannerAnimated = keyframes`
+  from{
+    opacity: 0;
+    transform: translateX(-30%) scale(0.9);
+  }to{
+    opacity: 1;
+    transform: translateX(0%) scale(1);
+  }
+`
 
 export const Banner = styled.section<{ color: string }>`
   height: 100vh;
@@ -22,6 +32,8 @@ export const Banner = styled.section<{ color: string }>`
     padding: 50px;
     font-size: 32pt;
     font-weight: bold;
+    animation-name: ${bannerAnimated};
+    animation-duration: 1s;
   }
 
   section > small {
@@ -40,6 +52,13 @@ export const Banner = styled.section<{ color: string }>`
     cursor: pointer;
     color: #fff;
     margin-top: 15px;
+    animation-name: ${bannerAnimated};
+    animation-duration: 1s;
+  }
+
+  section > h2, section > small{
+    animation-name: ${bannerAnimated};
+    animation-duration: 1s;
   }
 
   section > ul{
@@ -54,6 +73,8 @@ export const Banner = styled.section<{ color: string }>`
     margin-top: 50px;
     border-radius: 120px;
     padding: 10px;
+    animation-name: ${bannerAnimated};
+    animation-duration: 1s;
   }
 
 
@@ -63,6 +84,8 @@ export const Banner = styled.section<{ color: string }>`
     border-bottom-left-radius: 80px;
     border-top-left-radius: 80px;
     width: 40%;
+    animation-name: ${bannerAnimated};
+    animation-duration: 1s;
   }
   article > img{
     width: 100%;
@@ -70,6 +93,8 @@ export const Banner = styled.section<{ color: string }>`
     top: 0;
     right: 40%;
     transform: 0.5s;
+    animation-name: ${bannerAnimated};
+    animation-duration: 1s;
   }
 
   article > span{

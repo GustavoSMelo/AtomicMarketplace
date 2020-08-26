@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Header from '../../components/navbar'
+import Navbar from '../../components/navbar'
 import { FaRegHeart, FaCartPlus, FaStream, FaStar, FaShoppingBag, FaPlusCircle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { Container, Banner, Cart } from './styled'
@@ -37,7 +37,7 @@ const Main = () => {
   }
   return (
     <>
-      <Header />
+      <Navbar />
       <Banner color={colorBanner}>
         <section>
           <h1>
