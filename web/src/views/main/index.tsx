@@ -7,6 +7,7 @@ import blueshoes from '../../assets/images/bannershoes2.png'
 import redshoes from '../../assets/images/shoesvermelhos.png'
 import purpleshoes from '../../assets/images/purpleshoes.png'
 import brownshoes from '../../assets/images/brownshoes.png'
+import Footer from '../../components/footer'
 
 const Main = () => {
   const [colorBanner, setColorBanner] = useState('#00f')
@@ -94,6 +95,7 @@ const Main = () => {
           </li>
         </ul>
       </Container>
+      <Footer />
     </>
   )
 }
