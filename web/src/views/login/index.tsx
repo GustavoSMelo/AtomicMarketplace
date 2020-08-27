@@ -13,17 +13,17 @@ const login = () => {
       <div className="container-login">
         <section className="form">
           <img src={logo} alt="image login" />
-          <form>
+          <form data-testid="form">
             <h1>
               Bem vindo,
               <br />
               <span>Faça seu login para continuar</span>
             </h1>
-            <Input type="email" placeholder="E-mail" />
-            <Input type="password" placeholder="Senha" />
+            <Input data-testid="login-input" type="email" placeholder="E-mail" />
+            <Input data-testid="password-input" type="password" placeholder="Senha" />
 
-            <button type="button" className="btn-entrar"> Entrar</button> <br />
-            <Link className="link-register" to="/signup">
+            <button data-testid="login-button" type="button" className="btn-entrar"> Entrar</button> <br />
+            <Link data-testid="registry-button" className="link-register" to="/signup">
               <FaSignInAlt fontSize={15} /> Realizar Cadastro
             </Link>
           </form>
