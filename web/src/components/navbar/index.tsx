@@ -38,7 +38,7 @@ const Navbar = () => {
               <Link className='Touchable' to='/search'>
                 <FaSearch />
               </Link>
-              <Link className='Touchable Bag' to='/'>
+              <Link className='Touchable Bag' to='/cart'>
                 <FaShoppingBag />
               </Link>
               <Link className='Touchable' to='/'>
