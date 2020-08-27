@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Main from '../views/main'
 import Login from '../views/login'
 import signup from '../views/signup'
-
+import Search from '../views/search/index'
 import ProductDetails from '../views/productDetails'
 
 const Routes = () => {
@@ -14,7 +14,7 @@ const Routes = () => {
         <Route exact path='/product/details' component={ProductDetails} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/signup' component={signup} />
-
+        <Route exact path='/search' component={Search} />
       </Switch>
     </BrowserRouter>
   )
