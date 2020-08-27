@@ -35,7 +35,7 @@ const Navbar = () => {
             </nav>
 
             <section>
-              <Link className='Touchable' to='/'>
+              <Link className='Touchable' to='/search'>
                 <FaSearch />
               </Link>
               <Link className='Touchable Bag' to='/'>
@@ -68,7 +68,7 @@ const Navbar = () => {
           </nav>
 
           <section>
-            <Link className='Touchable' to='/'>
+            <Link className='Touchable' to='/search'>
               <FaSearch />
             </Link>
             <Link className='Button' to='/'>
