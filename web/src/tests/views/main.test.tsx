@@ -1,5 +1,5 @@
 import React from 'react'
-import { render, } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import Main from '../../views/main'
 import { BrowserRouter } from 'react-router-dom'
 
