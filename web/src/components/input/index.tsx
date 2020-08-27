@@ -8,7 +8,7 @@ interface IntputProps {
 const input: React.FC<IntputProps> = ({ placeholder, type }) => {
   return (
     <>
-      <input className="input-data" type={type} placeholder={placeholder} required />
+      <input data-testid='input-component' className="input-data" type={type} placeholder={placeholder} required />
     </>
   )
 }
