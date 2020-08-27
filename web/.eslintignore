@@ -3,3 +3,4 @@ package-lock.json
 tsconfig.json
 .eslintrc.json
 .gitignore
+things.todo
