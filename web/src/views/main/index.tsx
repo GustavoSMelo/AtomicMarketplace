@@ -10,7 +10,7 @@ import brownshoes from '../../assets/images/brownshoes.png'
 import Footer from '../../components/footer'
 
 const Main = () => {
-  const [colorBanner, setColorBanner] = useState('#00f')
+  const [colorBanner, setColorBanner] = useState('#6970DF')
   const [imageBanner, setImageBanner] = useState(blueshoes)
   const [titleBanner, setTitleBanner] = useState('Sapatos de corrida Adidas')
   const [descriptionBanner, setDescriptionBanner] = useState('Temos sapatos perfeitos para a sua caminhada ou academia')
@@ -18,7 +18,7 @@ const Main = () => {
   const changeColor = (color: string) => {
     setColorBanner(color)
 
-    if (color === '#00f') {
+    if (color === '#6970DF') {
       setImageBanner(blueshoes)
       setTitleBanner('Sapatos de corrida Adidas')
       setDescriptionBanner('Temos sapatos perfeitos para a sua caminhada ou academia')
@@ -54,7 +54,7 @@ const Main = () => {
           </button>
 
           <ul>
-            <li style={{ backgroundColor: '#00f' }} onClick={() => changeColor('#00f')}>
+            <li style={{ backgroundColor: '#6970DF' }} onClick={() => changeColor('#6970DF')}>
             </li>
             <li style={{ backgroundColor: '#824C3B' }} onClick={() => changeColor('#824C3B')}>
             </li>
