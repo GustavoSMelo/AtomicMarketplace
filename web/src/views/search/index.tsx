@@ -14,6 +14,8 @@ import SapatoSocial from '../../assets/images/icons/sapato-social.svg'
 import SapatosFemininosSocial from '../../assets/images/icons/sapatos-feminino-social.svg'
 import Vestidos from '../../assets/images/icons/vestidos.svg'
 
+import Footer from '../../components/footer'
+
 const Search = () => {
   return (
     <>
@@ -100,6 +102,7 @@ const Search = () => {
 
         </article>
       </Container>
+      <Footer />
     </>
   )
 }
