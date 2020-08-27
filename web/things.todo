@@ -1,0 +1,21 @@
+TODO:
+- Add responsiveness in product detail view
+- Add responsiveness in footer
+- Add responsiveness in navbar
+- Create view login for managements
+- Create view home for managements
+- Create view login for charterer
+- Create view to list product registered for charterer
+- Create view to registry product for charterer
+- Create view to edit/delete product for charterer
+- Create view registry for charterer
+- Create view for FAQ
+- Create view for attendance
+- Create view for our company
+- Create view to choose one store to get a product about user
+
+
+- Create connection with API
+
+//Not necessary:
+Create tests for any kind of view (components is not necessary) - G
