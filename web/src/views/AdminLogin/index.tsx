@@ -3,8 +3,6 @@ import Input from '../../components/input'
 import Button from '../../components/button'
 
 import logo from '../../assets/images/admin-login-image.png'
-import { FaSignInAlt } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
 
 import './style.css'
 const AdminLogin: React.FC = () => {
@@ -21,12 +19,10 @@ const AdminLogin: React.FC = () => {
               <span>Faça seu login para continuar</span>
             </h1>
             <Input data-testid="login-input" type="email" placeholder="E-mail" />
-            <Input data-testid="password-input" type="password" placeholder="Senha" />
+            <Input data-testid="password-input" type="text" placeholder="Seu id" />
 
             <Button type="button" value="Entrar" /> <br />
-            <Link data-testid="registry-button" className="link-register" to="admin/signup">
-              <FaSignInAlt fontSize={15} /> Realizar Cadastro
-            </Link>
+
           </form>
         </section>
       </div>
