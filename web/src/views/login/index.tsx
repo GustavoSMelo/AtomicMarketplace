@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../../components/navbar'
+import Button from '../../components/button'
 import Input from '../../components/input'
 import logo from '../../assets/images/logo.png'
 import { FaSignInAlt } from 'react-icons/fa'
@@ -22,7 +23,7 @@ const login = () => {
             <Input data-testid="login-input" type="email" placeholder="E-mail" />
             <Input data-testid="password-input" type="password" placeholder="Senha" />
 
-            <button data-testid="login-button" type="button" className="btn-entrar"> Entrar</button> <br />
+            <Button type="button" value="Entrar" /> <br /> <br />
             <Link data-testid="registry-button" className="link-register" to="/signup">
               <FaSignInAlt fontSize={15} /> Realizar Cadastro
             </Link>

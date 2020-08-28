@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../../components/navbar'
+import Button from '../../components/button'
 import Input from '../../components/input'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/images/singup.png'
@@ -27,7 +28,7 @@ const signup = () => {
             <Input type="email" placeholder="Seu melhor E-mail" />
             <Input type="password" placeholder="Sua Senha" />
             <br />
-            <button type="button" className="btn-entrar"> Registrar</button>
+            <Button type="button" value="Registrar" />
 
           </form>
         </section>
