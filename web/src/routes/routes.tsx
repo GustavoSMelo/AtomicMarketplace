@@ -6,6 +6,7 @@ import signup from '../views/signup'
 import Search from '../views/search/index'
 import ProductDetails from '../views/productDetails'
 import Cart from '../views/cart'
+import AdminLogin from '../views/AdminLogin'
 
 const Routes = () => {
   return (
@@ -17,6 +18,8 @@ const Routes = () => {
         <Route exact path='/signup' component={signup} />
         <Route exact path='/search' component={Search} />
         <Route exact path='/cart' component={Cart} />
+        <Route exact path='/admin/login' component={AdminLogin} />
+
       </Switch>
     </BrowserRouter>
   )
