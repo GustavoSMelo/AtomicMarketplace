@@ -4,6 +4,7 @@ import Navbar from '../../components/navbar'
 import Footer from '../../components/footer'
 import EmptyShoppingCart from '../../assets/images/empty-shopping-cart.png'
 import { RiShip2Line } from 'react-icons/ri'
+import { FaRegTrashAlt } from 'react-icons/fa'
 import ImageTest from '../../assets/images/bannershoes2.png'
 
 const Cart = () => {
@@ -27,8 +28,12 @@ const Cart = () => {
               </figure>
               <span>
                 <h1>Name of product</h1>
-                <h2>price of product</h2>
-                <h2>brand</h2>
+                <h2>120.00 BRL</h2>
+                <h2>puma</h2>
+
+                <button type='button'>
+                  <FaRegTrashAlt /> Remove
+                </button>
               </span>
             </li>
           </ul>
