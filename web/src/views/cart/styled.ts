@@ -35,12 +35,15 @@ export const Container = styled.main<{ haveProduct: boolean }>`
   article {
     display: ${props => props.haveProduct ? 'flex' : 'none'};
     margin-top: 80px;
+    border-radius: 10px;
   }
 
   article > ul > li{
     display: flex;
     flex-direction: row;
     border-radius: 15px;
+    margin: 35px;
+    border: solid 2px #101010;
   }
 
   article > ul > li > figure {
@@ -62,5 +65,22 @@ export const Container = styled.main<{ haveProduct: boolean }>`
     display:flex;
     flex-direction: column;
     justify-content: center;
+  }
+
+  article > ul > li > span > h1{
+    font-size: 32pt;
+  }
+
+  article > ul > li > span > button {
+    width: 320px;
+    margin-top: 15px;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 16pt;
+    border: none;
+    border-radius: 10px;
+    background-color: #F74A4A;
+    color: #fff;
+    cursor: pointer;
   }
 `
