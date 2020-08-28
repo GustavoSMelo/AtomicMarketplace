@@ -32,7 +32,6 @@ const login = () => {
               <FaSignInAlt fontSize={15} /> Ou seja um vendedor
             </Link>
 
-
           </form>
         </section>
       </div>

@@ -11,7 +11,7 @@ const SalesmanSignup: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="container-signup">
+      <div className="container-salesman-signup">
         <section className="form">
           <Link to="/salesman/login" className="arrow-back" >
             <FaArrowLeft fontSize={20} />
