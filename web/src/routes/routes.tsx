@@ -3,10 +3,13 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Main from '../views/main'
 import Login from '../views/login'
 import signup from '../views/signup'
+import AdminLogin from '../views/AdminLogin'
+import SalesmanLogin from '../views/SalesmanLogin'
+import SalesmanSignup from '../views/SalesmanSignup'
+
 import Search from '../views/search/index'
 import ProductDetails from '../views/productDetails'
 import Cart from '../views/cart'
-import AdminLogin from '../views/AdminLogin'
 
 const Routes = () => {
   return (
@@ -19,6 +22,8 @@ const Routes = () => {
         <Route exact path='/search' component={Search} />
         <Route exact path='/cart' component={Cart} />
         <Route exact path='/admin/login' component={AdminLogin} />
+        <Route exact path='/salesman/login' component={SalesmanLogin} />
+        <Route exact path='/salesman/signup' component={SalesmanSignup} />
 
       </Switch>
     </BrowserRouter>
