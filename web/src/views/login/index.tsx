@@ -26,7 +26,13 @@ const login = () => {
             <Button type="button" value="Entrar" /> <br /> <br />
             <Link data-testid="registry-button" className="link-register" to="/signup">
               <FaSignInAlt fontSize={15} /> Realizar Cadastro
+            </Link> <br /> <br />
+
+            <Link data-testid="registry-button" className="link-register" to="/salesman/signup">
+              <FaSignInAlt fontSize={15} /> Ou seja um vendedor
             </Link>
+
+
           </form>
         </section>
       </div>
