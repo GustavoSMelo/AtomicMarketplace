@@ -10,6 +10,7 @@ import SalesmanSignup from '../views/SalesmanSignup'
 import Search from '../views/search/index'
 import ProductDetails from '../views/productDetails'
 import Cart from '../views/cart'
+import CreateProduct from '../views/createProduct'
 
 const Routes = () => {
   return (
@@ -24,6 +25,8 @@ const Routes = () => {
         <Route exact path='/admin/login' component={AdminLogin} />
         <Route exact path='/salesman/login' component={SalesmanLogin} />
         <Route exact path='/salesman/signup' component={SalesmanSignup} />
+        <Route exact path='/salesman/create/product' component={CreateProduct} />
+
 
       </Switch>
     </BrowserRouter>
