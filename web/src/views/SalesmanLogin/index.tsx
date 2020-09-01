@@ -21,7 +21,7 @@ const SalesmanLogin: React.FC = () => {
               <br />
               <span>Faça seu login vendedor</span>
             </h1>
-            <Input data-testid="login-input" type="text" placeholder="Seu CPNJ" />
+            <Input data-testid="login-input" type="text" placeholder="Seu ID" />
             <Input data-testid="password-input" type="password" placeholder="Sua Senha" />
 
             <Button type="button" value="Entrar" /> <br /> <br />
