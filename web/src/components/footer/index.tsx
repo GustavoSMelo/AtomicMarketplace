@@ -40,8 +40,8 @@ const Footer = () => {
       <article>
         <h2>Area de funcionarios</h2>
         <ul>
-          <li>Entrar na conta de fretador</li>
-          <li>Se registrar como fretador</li>
+          <li>Entrar na conta de vendedor</li>
+          <li>Se registrar como vendedor</li>
           <li>Area restrita</li>
         </ul>
       </article>
