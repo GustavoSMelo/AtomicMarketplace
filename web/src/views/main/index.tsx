@@ -76,7 +76,7 @@ const Main = () => {
                 <FaRegHeart color={'#f00'} />
               </span>
               <span>
-                4.3 <FaStar color={'#C7BD61'} />
+                4.3 <FaStar color={'#FFF36B'} />
               </span>
             </span>
             <h3>All-star</h3>
