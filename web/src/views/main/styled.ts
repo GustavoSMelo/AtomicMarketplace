@@ -158,7 +158,7 @@ export const Container = styled.main`
   }
 
   .Details{
-    background-color: #C7BD61;
+    background-color: #FFF36B;
     padding: 15px;
     border-radius: 5px;
     display: flex;
