@@ -18,11 +18,16 @@ export const Container = styled.main<{ haveProduct: boolean }>`
 
   section > h1{
     font-size: 30pt;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+
+  section > h2 {
+    margin: 15px;
   }
 
   section > button{
-    margin: 10px;
+    margin: 15px;
     background-color: #101010;
     border: none;
     border-radius: 10px;
@@ -32,10 +37,20 @@ export const Container = styled.main<{ haveProduct: boolean }>`
     cursor: pointer;
   }
 
+  section > button > .link {
+    color: #fff;
+    text-decoration: none;
+  }
+
   article {
     display: ${props => props.haveProduct ? 'flex' : 'none'};
     margin-top: 80px;
     border-radius: 10px;
+    flex-direction: column;
+  }
+
+  article > h1 {
+    margin-left: 35px;
   }
 
   article > ul > li{
@@ -78,9 +93,39 @@ export const Container = styled.main<{ haveProduct: boolean }>`
     font-weight: bold;
     font-size: 16pt;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #F74A4A;
     color: #fff;
     cursor: pointer;
+    transition: 250ms;
+  }
+
+  article > ul > li > span > button:hover{
+    background-color: #AB3333;
+    transition: 250ms;
+  }
+
+  article > button {
+    width: 250px;
+    margin-left: 35px;
+    border-radius: 5px;
+    border: none;
+    background-color: #65E858;
+    padding: 10px;
+    font-size: 16pt;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: center;
+    transition: 250ms;
+  }
+
+  article > button:hover{
+    cursor: pointer;
+    background-color: #4DAD42;
+    transition: 250ms;
   }
 `
