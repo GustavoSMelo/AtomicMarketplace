@@ -41,7 +41,7 @@ const Navbar = () => {
               <Link className='Touchable Bag' to='/cart'>
                 <FaShoppingBag />
               </Link>
-              <Link className='Touchable' to='/'>
+              <Link className='Touchable' to='/user/profile'>
                 <FaRegUserCircle />
               </Link>
             </section>
@@ -71,7 +71,7 @@ const Navbar = () => {
             <Link className='Touchable' to='/search'>
               <FaSearch />
             </Link>
-            <Link className='Button' to='/'>
+            <Link className='Button' to='/login'>
               <h2>Login</h2>
             </Link>
           </section>
