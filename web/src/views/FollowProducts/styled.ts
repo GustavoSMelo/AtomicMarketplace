@@ -57,16 +57,16 @@ export const Container = styled.main`
     width: 100%;
   }
 
-  .Card > section > span > button{
+  .Card > section > span > .LinkButton > button{
     border: none;
     padding: 30px;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16pt;
+    box-shadow: 3px 3px 6px #acacac;
   }
 
   .Card > section > span > article{
     font-size: 18pt;
   }
-
 `

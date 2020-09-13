@@ -2,15 +2,13 @@ import React from 'react'
 import Navbar from '../../components/navbar'
 import { Container } from './styled'
 import Image from '../../assets/images/bannershoes2.png'
-import { FaTruckLoading, FaArrowLeft } from 'react-icons/fa'
-
+import { FaTruckLoading } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 const FollowProducts = () => {
   return (
     <>
       <Navbar />
       <Container>
-        <FaArrowLeft className="Icon" size={32} />
-
         <h1> Esses sao os pedidos a caminho: </h1>
 
         <article className='Card'>
@@ -21,7 +19,7 @@ const FollowProducts = () => {
             <h1>Name of product</h1>
             <h2>120.00 BRL</h2>
             <span>
-              <button type="button">Visualizar entrega</button>
+              <Link className='LinkButton' to='/buy/product/detail'><button type="button">Visualizar pedido</button></Link>
               <article>
                 <FaTruckLoading /> Status da entrega
               </article>
