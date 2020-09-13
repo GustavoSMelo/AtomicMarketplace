@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../../components/navbar'
 import { Container } from './styled'
 import { FaWallet, FaRegUserCircle, FaPencilAlt } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const UserProfile = () => {
   return (
@@ -10,10 +11,10 @@ const UserProfile = () => {
       <Container>
         <aside>
           <ul>
-            <li>Acompanhe seus pedidos</li>
-            <li>Historico de pedidos</li>
-            <li>Produtos favoritados</li>
-            <li>Logout(Sair) </li>
+            <Link className='Link' to='/follow/product'><li>Acompanhe seus pedidos</li></Link>
+            <Link className='Link' to='/buy/historic'><li>Historico de pedidos</li></Link>
+            <Link className='Link' to='/'><li>Produtos favoritados</li></Link>
+            <Link className='Link' to='/'><li>Logout(Sair) </li></Link>
           </ul>
         </aside>
         <article>
