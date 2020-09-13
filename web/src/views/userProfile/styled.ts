@@ -14,28 +14,34 @@ export const Container = styled.main`
   aside > ul{
     margin-top: 45px;
   }
-  aside > ul > li {
-    padding: 100px;
+
+  aside > ul > .Link{
+    padding: 0px;
+  }
+  aside > ul > .Link > li {
+    padding: 50px;
     list-style-type: none;
     cursor: pointer;
     transition: 250ms;
     font-size: 18pt;
+    color: #000;
+    text-decoration: none;
   }
 
-  aside > ul > li:hover {
+  aside > ul > .Link > li:hover {
     background-color: #e0e0e0;
     transition: 250ms;
   }
 
-  aside > ul > li:nth-child(1) {
+  aside > ul > .Link > li:nth-child(1) {
     border-bottom: solid 1px #000;
   }
 
-  aside > ul > li:nth-child(2) {
+  aside > ul > .Link > li:nth-child(2) {
     border-bottom: solid 1px #000;
   }
 
-  aside > ul > li:nth-child(3) {
+  aside > ul > .Link > li:nth-child(3) {
     border-bottom: solid 1px #000;
   }
 
