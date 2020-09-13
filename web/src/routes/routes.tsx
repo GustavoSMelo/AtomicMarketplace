@@ -12,6 +12,9 @@ import ProductDetails from '../views/productDetails'
 import Cart from '../views/cart'
 import CreateProduct from '../views/createProduct'
 import FollowProduct from '../views/FollowProducts'
+import BuyedProductDetail from '../views/BuyedProductDetail'
+import BuyHistoric from '../views/BuyHistoric'
+import FavoritedProducts from '../views/FavoritedProducts'
 
 const Routes = () => {
   return (
@@ -29,6 +32,9 @@ const Routes = () => {
         <Route exact path='/salesman/create/product' component={CreateProduct} />
         <Route exact path='/user/profile' component={UserProfile} />
         <Route exact path='/follow/product' component={FollowProduct} />
+        <Route exact path='/buy/product/detail' component={BuyedProductDetail} />
+        <Route exact path='/buy/historic' component={BuyHistoric} />
+        <Route exact path='/favorites' component={FavoritedProducts} />
       </Switch>
     </BrowserRouter>
   )
