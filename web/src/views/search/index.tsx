@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../../components/navbar'
 import Input from '../../components/input'
 import { Container } from './styled'
-import { FaSearch } from 'react-icons/fa'
+import { FaSearch, FaHeart, FaStar, FaShoppingBag, FaStream, FaSteam } from 'react-icons/fa'
 
 import NovosItens from '../../assets/images/icons/novos-itens.svg'
 import RoupaCasual from '../../assets/images/icons/roupa-casual.svg'
@@ -15,12 +15,16 @@ import SapatosFemininosSocial from '../../assets/images/icons/sapatos-feminino-s
 import Vestidos from '../../assets/images/icons/vestidos.svg'
 
 import Footer from '../../components/footer'
+import Image from '../../assets/images/bannershoes2.png'
+import { Link } from 'react-router-dom'
 
 const Search = () => {
+  const [needHelp, setNeedHelp] = useState(true)
+
   return (
     <>
       <Navbar />
-      <Container data-testid='container' needHelp={true}>
+      <Container data-testid='container' needHelp={needHelp}>
         <article className='InputSearch'>
           <Input type='text' placeholder='Qual produto você procura ?' />
           <button data-testid='search-button'>
@@ -34,7 +38,7 @@ const Search = () => {
             Alguns tópicos para lhe auxiliar :)
           </h1>
           <ul data-testid='list'>
-            <li>
+            <li onClick={() => setNeedHelp(false)}>
               <figure>
                 <img src={NovosItens} />
                 <figcaption>Novos itens</figcaption>
@@ -98,8 +102,92 @@ const Search = () => {
             </li>
           </ul>
         </section>
-        <article>
+        <article className='SearchContainer'>
+          <section className='RowContainer'>
+            <h2>Resultados da pesquisa: Novos Itens</h2>
+            <small>4 Itens encontrado na sua pesquisa</small>
+          </section>
+          <ul className='SearchProducts'>
+            <li>
+              <span className='HeaderContainer'>
+                <FaHeart size={20} color='#f00' />
+                <span>
+                  <FaStar size={20} color='#FFF36B'/> 4.0
+                </span>
+              </span>
+              <figure>
+                <img src={Image} alt='Product' />
+              </figure>
+              <small>Name of product</small>
+              <h1>120.00 BRL</h1>
+              <section className='Controls'>
+                <FaShoppingBag className='Bag' size={30} />
+                <Link className='ButtonLink' to='/product/details'>
+                  <button><FaStream /> {'  '}Details</button>
+                </Link>
+              </section>
+            </li>
 
+            <li>
+              <span className='HeaderContainer'>
+                <FaHeart size={20} color='#f00' />
+                <span>
+                  <FaStar size={20} color='#FFF36B'/> 4.0
+                </span>
+              </span>
+              <figure>
+                <img src={Image} alt='Product' />
+              </figure>
+              <small>Name of product</small>
+              <h1>120.00 BRL</h1>
+              <section className='Controls'>
+                <FaShoppingBag className='Bag' size={30} />
+                <Link className='ButtonLink' to='/product/details'>
+                  <button><FaStream /> {'  '}Details</button>
+                </Link>
+              </section>
+            </li>
+
+            <li>
+              <span className='HeaderContainer'>
+                <FaHeart size={20} color='#f00' />
+                <span>
+                  <FaStar size={20} color='#FFF36B'/> 4.0
+                </span>
+              </span>
+              <figure>
+                <img src={Image} alt='Product' />
+              </figure>
+              <small>Name of product</small>
+              <h1>120.00 BRL</h1>
+              <section className='Controls'>
+                <FaShoppingBag className='Bag' size={30} />
+                <Link className='ButtonLink' to='/product/details'>
+                  <button><FaStream /> {'  '}Details</button>
+                </Link>
+              </section>
+            </li>
+
+            <li>
+              <span className='HeaderContainer'>
+                <FaHeart size={20} color='#f00' />
+                <span>
+                  <FaStar size={20} color='#FFF36B'/> 4.0
+                </span>
+              </span>
+              <figure>
+                <img src={Image} alt='Product' />
+              </figure>
+              <small>Name of product</small>
+              <h1>120.00 BRL</h1>
+              <section className='Controls'>
+                <FaShoppingBag className='Bag' size={30} />
+                <Link className='ButtonLink' to='/product/details'>
+                  <button><FaStream /> {'  '}Details</button>
+                </Link>
+              </section>
+            </li>
+          </ul>
         </article>
       </Container>
       <Footer />

@@ -84,4 +84,83 @@ export const Container = styled.main<{ needHelp: boolean }>`
   .HelpSearch > ul > li > figure> img{
     width: 120px;
   }
+
+  .SearchContainer{
+    display: ${props => props.needHelp ? 'none' : 'flex'};
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+  }
+
+  .SearchContainer > .RowContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+  }
+
+  .SearchContainer > .RowContainer > small{
+    font-size: 14pt;
+    color: #656565;
+  }
+
+  .SearchContainer > ul{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+  }
+
+  .SearchContainer > ul > li{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    box-shadow: 2px 2px 1px #acacac;
+  }
+
+  .SearchContainer > ul > li > .HeaderContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .SearchContainer > ul > li > figure > img {
+    width: 100%;
+  }
+
+  .SearchContainer > ul > li > .Controls{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .SearchContainer > ul > li > .Controls > .Bag{
+    padding: 30px;
+    cursor: pointer;
+  }
+
+  .SearchContainer > ul > li > .Controls > .ButtonLink{
+    color: #000;
+    text-decoration: none !important;
+  }
+
+  .SearchContainer > ul > li > .Controls > .ButtonLink > button{
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18pt;
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FFF36B;
+    cursor: pointer;
+    color: #000;
+    text-decoration: none !important;
+  }
 `
