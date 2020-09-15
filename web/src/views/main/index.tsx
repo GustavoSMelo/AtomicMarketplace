@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Navbar from '../../components/navbar'
-import { FaRegHeart, FaCartPlus, FaStream, FaStar, FaShoppingBag, FaPlusCircle } from 'react-icons/fa'
+import { FaRegHeart, FaStream, FaStar, FaShoppingBag } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { Container, Banner, Cart } from './styled'
 import blueshoes from '../../assets/images/bannershoes2.png'
@@ -79,10 +79,10 @@ const Main = () => {
                 4.3 <FaStar color={'#FFF36B'} />
               </span>
             </span>
-            <h3>All-star</h3>
             <figure>
               <img src='https://cdn.pixabay.com/photo/2013/07/12/18/20/chucks-153310_960_720.png' alt='product image' />
             </figure>
+            <h3>All-star</h3>
             <h1>R$ 100.00</h1>
             <section className="RowContainer">
               <Cart type='button' background={'#fff'} color={'#67D651'}>
