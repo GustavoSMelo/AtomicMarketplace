@@ -4,11 +4,12 @@ import { Container } from './styled'
 import Image from '../../assets/images/bannershoes2.png'
 import { FaTruckLoading } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import AnyProductPurchased from '../../assets/images/package.svg'
 const FollowProducts = () => {
   return (
     <>
       <Navbar />
-      <Container>
+      <Container hasProduct={false}>
         <h1> Esses sao os pedidos a caminho: </h1>
 
         <article className='Card'>
@@ -26,6 +27,13 @@ const FollowProducts = () => {
             </span>
           </section>
         </article>
+
+        <section className='AnyProduct'>
+          <figure>
+            <img src={AnyProductPurchased} alt='Any product purchased' />
+          </figure>
+          <h1>Não temos nenhum registrado produto para ser entregue</h1>
+        </section>
       </Container>
     </>
   )

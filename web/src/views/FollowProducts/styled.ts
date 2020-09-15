@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.main`
+export const Container = styled.main<{hasProduct: boolean}>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,12 +16,13 @@ export const Container = styled.main`
     text-align: center;
     margin-bottom: 20px;
   }
+
   .Card{
     padding: 15px;
     border: solid 2px #000;
     width: 60%;
     border-radius: 5px;
-    display: flex;
+    display: ${props => props.hasProduct ? 'flex' : 'none' };
     flex-direction: row;
   }
   .Card > figure{
@@ -68,5 +69,16 @@ export const Container = styled.main`
 
   .Card > section > span > article{
     font-size: 18pt;
+  }
+
+  .AnyProduct{
+    display: ${props => props.hasProduct ? 'none' : 'flex'};
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .AnyProduct > figure > img{
+    width: 70%;
   }
 `
