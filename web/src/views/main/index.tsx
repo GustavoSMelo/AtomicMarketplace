@@ -12,7 +12,7 @@ import Footer from '../../components/footer'
 const Main = () => {
   const [colorBanner, setColorBanner] = useState('#6970DF')
   const [imageBanner, setImageBanner] = useState(blueshoes)
-  const [titleBanner, setTitleBanner] = useState('Sapatos de corrida Adidas')
+  const [titleBanner, setTitleBanner] = useState('Tênis Air Jordan XXXIII')
   const [descriptionBanner, setDescriptionBanner] = useState('Temos sapatos perfeitos para a sua caminhada ou academia')
 
   const changeColor = (color: string) => {
@@ -20,11 +20,11 @@ const Main = () => {
 
     if (color === '#6970DF') {
       setImageBanner(blueshoes)
-      setTitleBanner('Sapatos de corrida Adidas')
+      setTitleBanner('Tênis Air Jordan XXXIII')
       setDescriptionBanner('Temos sapatos perfeitos para a sua caminhada ou academia')
     } else if (color === '#CC5A62') {
       setImageBanner(redshoes)
-      setTitleBanner('Tenis de Basquete Nike')
+      setTitleBanner('Tenis Air Jordan mid one')
       setDescriptionBanner('Perfeito para dar um show nas quadras ')
     } else if (color === '#7159ac') {
       setImageBanner(purpleshoes)
