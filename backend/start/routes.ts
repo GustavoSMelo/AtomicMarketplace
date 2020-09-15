@@ -19,7 +19,10 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+import UserController from '../app/Controllers/Http/UsersController'
 
 Route.get('/', async () => {
   return { hello: 'world' }
 })
+
+Route.post('/user', new UserController().Store)
