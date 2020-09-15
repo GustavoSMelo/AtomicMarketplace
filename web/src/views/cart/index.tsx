@@ -15,7 +15,7 @@ const Cart = () => {
       <Container data-testid='Container' haveProduct={true}>
         <section data-testid='without-product'>
           <img data-testid='image-alert' src={EmptyShoppingCart} alt='Empty shopping cart' />
-          <h1>Você não tem produtos na sacola ainda ;-;</h1>
+          <h1>Você não tem produtos na sacola ainda</h1>
           <h2>Navegue na nossa loja para encontrar produtos</h2>
           <button data-testid='btn-navigate' type='button'>
             <Link className='link' to='/search'>
@@ -33,7 +33,7 @@ const Cart = () => {
               <span>
                 <h1>Name of product</h1>
                 <h2>120.00 BRL</h2>
-                <h2>puma</h2>
+                <h2>Nike</h2>
 
                 <button type='button'>
                   <FaRegTrashAlt /> Remove
