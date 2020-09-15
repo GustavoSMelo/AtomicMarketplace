@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../../components/navbar'
 import { Container } from './styled'
-import { FaWallet, FaRegUserCircle, FaPencilAlt } from 'react-icons/fa'
+import { FaWallet, FaRegUserCircle, FaPencilAlt, FaTruckLoading, FaHeart, FaClock, FaPowerOff} from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const UserProfile = () => {
@@ -11,10 +11,10 @@ const UserProfile = () => {
       <Container>
         <aside>
           <ul>
-            <Link className='Link' to='/follow/product'><li>Acompanhe seus pedidos</li></Link>
-            <Link className='Link' to='/buy/historic'><li>Historico de pedidos</li></Link>
-            <Link className='Link' to='/'><li>Produtos favoritados</li></Link>
-            <Link className='Link' to='/'><li>Logout(Sair) </li></Link>
+            <Link className='Link' to='/follow/product'><li> <FaTruckLoading /> Acompanhe seus pedidos</li></Link>
+            <Link className='Link' to='/buy/historic'><li> <FaClock /> Historico de pedidos</li></Link>
+            <Link className='Link' to='/favorites'><li> <FaHeart /> Produtos favoritados</li></Link>
+            <Link className='Link' to='/'><li> <FaPowerOff /> Logout(Sair) </li></Link>
           </ul>
         </aside>
         <article>
