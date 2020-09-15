@@ -10,7 +10,7 @@ const FavoritedProducts = () => {
   return (
     <>
       <Navbar />
-      <Container hasFavorites={false}>
+      <Container hasFavorites={true}>
         <span className='title'>
           <figure>
             <img src={HeartImage} alt='Heart' />

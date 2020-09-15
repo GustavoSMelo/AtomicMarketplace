@@ -9,7 +9,7 @@ const BuyHistoric = () => {
   return (
     <>
       <Navbar />
-      <Container hasProduct={false}>
+      <Container hasProduct={true}>
         <FaArrowLeft className='btnReturn' size={36} color={'#000'} />
         <h1>Historico de compras realizadas: </h1>
         <ul>

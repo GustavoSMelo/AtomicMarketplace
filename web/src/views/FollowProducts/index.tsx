@@ -9,7 +9,7 @@ const FollowProducts = () => {
   return (
     <>
       <Navbar />
-      <Container hasProduct={false}>
+      <Container hasProduct={true}>
         <h1> Esses sao os pedidos a caminho: </h1>
 
         <article className='Card'>
