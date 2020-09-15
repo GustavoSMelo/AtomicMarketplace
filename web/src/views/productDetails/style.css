@@ -50,7 +50,7 @@
   font-size: 14pt;
   color: #909090;
   text-align: justify;
-  line-height: 25px;
+  line-height: 35px;
 }
 
 .RowContainer {
@@ -124,7 +124,7 @@
 .commentary{
   font-size: 16pt;
   text-align: justify;
-  line-height: 30px;
+  line-height: 40px;
 }
 
 .Review > small{
