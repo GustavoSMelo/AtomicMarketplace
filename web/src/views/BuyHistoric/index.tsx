@@ -3,12 +3,13 @@ import Navbar from '../../components/navbar'
 import { Container } from './styled'
 import { FaArrowLeft, FaCreditCard } from 'react-icons/fa'
 import Image from '../../assets/images/bannershoes2.png'
+import Searching from '../../assets/images/searching.svg'
 
 const BuyHistoric = () => {
   return (
     <>
       <Navbar />
-      <Container>
+      <Container hasProduct={false}>
         <FaArrowLeft className='btnReturn' size={36} color={'#000'} />
         <h1>Historico de compras realizadas: </h1>
         <ul>
@@ -60,6 +61,12 @@ const BuyHistoric = () => {
             </section>
           </li>
         </ul>
+        <section className='WithoutProducts'>
+          <figure>
+            <img src={Searching} alt='Searching purchases'/>
+          </figure>
+          <h1>Não encontramos nenhuma compra feita anteriormente</h1>
+        </section>
       </Container>
     </>
   )

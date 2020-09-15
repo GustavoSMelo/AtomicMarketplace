@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.main`
+export const Container = styled.main<{hasProduct : boolean}>`
   display: flex;
   flex-direction: column;
 
@@ -18,6 +18,7 @@ export const Container = styled.main`
 
   ul{
     width: 100%;
+    display: ${props => props.hasProduct ? 'block' : 'none'}
   }
 
   ul > li{
@@ -45,5 +46,14 @@ export const Container = styled.main`
 
   ul > li > section > p{
     margin: 10px;
+  }
+
+  .WithoutProducts{
+    display: ${props => props.hasProduct ? 'none' : 'flex'};
+    flex-direction: column;
+  }
+
+  .WithoutProducts > figure > img {
+    width: 70%;
   }
 `
