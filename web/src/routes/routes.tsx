@@ -12,7 +12,7 @@ import ProductDetails from '../views/productDetails'
 import Cart from '../views/cart'
 import CreateProduct from '../views/createProduct'
 import DeleteProduct from '../views/DeleteProduct'
-
+import EditProduct from '../views/EditProducts'
 import FollowProduct from '../views/FollowProducts'
 import BuyedProductDetail from '../views/BuyedProductDetail'
 import BuyHistoric from '../views/BuyHistoric'
@@ -33,6 +33,7 @@ const Routes = () => {
         <Route exact path='/salesman/signup' component={SalesmanSignup} />
         <Route exact path='/salesman/create/product' component={CreateProduct} />
         <Route exact path='/salesman/delete/product' component={DeleteProduct} />
+        <Route exact path='/salesman/edit/product' component={EditProduct} />
         <Route exact path='/user/profile' component={UserProfile} />
         <Route exact path='/follow/product' component={FollowProduct} />
         <Route exact path='/buy/product/detail' component={BuyedProductDetail} />
