@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const Main = styled.main`
 
 
+
 section{
   display:flex;
   justify-content:space-around;
@@ -21,7 +22,8 @@ padding: 5% 3% 5%;
 }
 section .data-product{
   display:flex;
-
+  width:600px;
+max-width:600px;
   justify-content:space-between;
 
 }
@@ -35,11 +37,18 @@ section .buttons-delete>button{
   border: 1px solid #000;
   padding:15px;
   font-size: 14px;
-  margin-right:5px;
-  margin-bottom:5px;
+  margin:5px 3px 5px;
+  height:63px;
+  width:100px;
+  max-width: 100px;
+  max-height:63px;
 
 }
 
+.buttons-delete{
+  width:320px;
+ max-width:320px;
+}
 section .buttons-delete>button:hover{
   background-color: #000;
   color:#ccc;
@@ -57,6 +66,9 @@ section .data-product>p{
 @media(max-width:1150px){
   .date-product{
     display:none;
+  }
+  .buttons-delete{
+    max-width:110px;
   }
 }
 
