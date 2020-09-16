@@ -1,5 +1,8 @@
 import React from 'react';
 import { RiDeleteBinLine } from 'react-icons/ri'
+import { RiEditFill } from 'react-icons/ri'
+import { Link } from 'react-router-dom';
+
 import { Main } from './styled';
 
 interface listProductProps {
@@ -23,7 +26,7 @@ const ListProduct: React.FC<listProductProps> = ({ image, nameProduct, date, qua
 
 
         <div className="buttons-delete">
-          <button>Editar Produto <RiDeleteBinLine color={"yellow"} /></button>
+          <button><Link to="/salesman/edit/product"> Editar Produto <RiEditFill /></Link></button>
           <button>Deletar Todos <RiDeleteBinLine color={"red"} /></button>
           <button>Deletar um <RiDeleteBinLine color={"red"} /></button>
         </div>
