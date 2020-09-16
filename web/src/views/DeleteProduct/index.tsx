@@ -11,12 +11,12 @@ const DeleteProduct: React.FC = () => {
       <Container>
         <h2>Quais Produtos deseja deletar?</h2>
         <h4> <RiShoppingCartLine size={18} /> Histórico de produtos </h4>
-        <ListProduct />
-        <ListProduct />
+        <ListProduct image="a" nameProduct="nike air jordan" date="14/10/2020" quantity={25} />
+        <ListProduct image="b" nameProduct="nike 99" date="15/19/2020" quantity={105} />
 
-        <ListProduct />
+        <ListProduct image="c" nameProduct="Adidas bluez" date="14/10/2021" quantity={75} />
 
-        <ListProduct />
+        <ListProduct image="d" nameProduct="nick x travis" date="14/01/2020" quantity={50} />
 
 
       </Container>
