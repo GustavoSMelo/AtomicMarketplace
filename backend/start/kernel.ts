@@ -10,7 +10,6 @@
 */
 
 import Server from '@ioc:Adonis/Core/Server'
-
 /*
 |--------------------------------------------------------------------------
 | Global middleware
@@ -41,4 +40,9 @@ Server.middleware.register([
 |
 */
 Server.middleware.registerNamed({
+  newUser: 'App/Middleware/validators/user/PostUserValidator',
+  editUser: 'App/Middleware/validators/user/EditUserValidator',
+  deleteShowUser: 'App/Middleware/validators/user/DeleteShowUserValidator',
+  UserSession: 'App/Middleware/validators/session/Session',
+  Auth: 'App/Middleware/Auth',
 })
