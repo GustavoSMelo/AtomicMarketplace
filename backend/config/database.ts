@@ -87,6 +87,15 @@ const databaseConfig: DatabaseConfig & { orm: Partial<OrmConfig> } = {
       },
       healthCheck: false,
     },
+
+    test: {
+      client: 'sqlite',
+      connection: {
+        filename: Application.tmpPath('../test/database.sqlite'),
+      },
+      useNullAsDefault: true,
+      healthCheck: false,
+    },
   },
 
   /*
