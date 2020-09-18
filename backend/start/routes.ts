@@ -19,10 +19,20 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+
 import UserController from '../app/Controllers/Http/UsersController'
+import SessionController from '../app/Controllers/Http/SessionController'
 
 Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-Route.post('/user', new UserController().Store)
+//User routes
+Route.post('/user', new UserController().Store).middleware('newUser')
+Route.get('/user', new UserController().Index).middleware('Auth')
+Route.put('/user', new UserController().Update).middleware('editUser')
+Route.delete('/user', new UserController().Destroy).middleware('deleteShowUser')
+Route.post('/user/show', new UserController().Show).middleware('deleteShowUser')
+
+//Session User
+Route.post('/user/session', new SessionController().Store).middleware('UserSession')
