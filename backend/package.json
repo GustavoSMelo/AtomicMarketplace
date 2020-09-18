@@ -4,15 +4,25 @@
   "private": true,
   "scripts": {
     "build": "node ace build",
-    "start": "node ace serve --watch",
-    "lint": "eslint . --ext=.ts"
+    "start": "node ace serve run --transpile-only --watch",
+    "lint": "eslint . --ext=.ts",
+    "test": "DB_CONNECTION=test node ./build/japafile.js"
   },
   "devDependencies": {
     "@adonisjs/assembler": "^2.1.5",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/jsdom": "^16.2.4",
+    "@types/jsonwebtoken": "^8.5.0",
+    "@types/supertest": "^2.0.10",
     "adonis-preset-ts": "^1.0.4",
     "eslint": "^7.9.0",
     "eslint-plugin-adonis": "^1.0.15",
+    "execa": "^4.0.3",
+    "get-port": "^5.1.1",
+    "japa": "^3.1.1",
+    "jsdom": "^16.4.0",
     "pino-pretty": "^4.2.1",
+    "supertest": "^4.0.2",
     "typescript": "^4.0.2",
     "youch": "^2.0.10",
     "youch-terminal": "^1.0.0"
@@ -22,6 +32,9 @@
     "@adonisjs/core": "^5.0.0-preview-rc-1.12",
     "@adonisjs/fold": "^6.4.0",
     "@adonisjs/lucid": "^8.4.2",
+    "bcryptjs": "^2.4.3",
+    "celebrate": "^13.0.3",
+    "jsonwebtoken": "^8.5.1",
     "luxon": "^1.25.0",
     "mysql": "^2.18.1",
     "pg": "^8.3.3",
