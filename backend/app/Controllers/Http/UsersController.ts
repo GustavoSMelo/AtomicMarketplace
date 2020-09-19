@@ -16,6 +16,7 @@ export default class UsersController {
     user.address_number = data.address_number
     user.password = passwordHash
     user.cep = data.cep
+    user.cellphone = data.cellphone
 
     await user.save()
 
@@ -30,9 +31,11 @@ export default class UsersController {
 
   public async Update ({ request } : HttpContextContract) {
     const newdatas = request.all()
-    const user = await UserModel.findOrFail(newdatas.user)
+    const { searchid } = request.request.headers
 
-    if(newdatas.password !== '' || newdatas.password !== undefined || newdatas.  password !== null){
+    const user = await UserModel.findOrFail(searchid)
+
+    if(newdatas.password !== '' || newdatas.password !== undefined || newdatas.password !== null){
       const passwordHash = await bcrypt.hash(newdatas.password, 8)
       user.password = passwordHash
     }else{
@@ -56,14 +59,17 @@ export default class UsersController {
     user.address = (newdatas.address !== '' || newdatas.address !== undefined || newdatas.address !== null
       ? newdatas.address:user.address)
 
+      user.cellphone = (newdatas.cellphone !== '' || newdatas.cellphone !== undefined || newdatas.cellphone !== null
+      ? newdatas.cellphone:user.cellphone)
+
     return user
   }
 
   public async Destroy ({request, response} : HttpContextContract){
-    const {userid} = request.all()
+    const { searchid } = request.request.headers
 
     try{
-      const user = await UserModel.findOrFail(userid)
+      const user = await UserModel.findOrFail(searchid)
       await user.delete()
 
       return response.status(200)
@@ -73,10 +79,10 @@ export default class UsersController {
   }
 
   public async Show ({request,response} : HttpContextContract){
-    const {userid} = request.all()
+    const { searchid } = request.request.headers
 
     try{
-      const user = UserModel.findOrFail(userid)
+      const user = UserModel.findOrFail(searchid)
       return user
     }catch(err){
       return response.status(404).json({Error: 'user not found'})
