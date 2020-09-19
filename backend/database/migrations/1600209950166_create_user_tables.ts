@@ -5,13 +5,14 @@ export default class CreateUserTables extends BaseSchema {
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
-      table.increments('id')
-      table.string('name')
-      table.string('email').unique()
-      table.string('password')
-      table.string('address')
-      table.integer('address_number')
-      table.string('cep')
+      table.increments('id').notNullable()
+      table.string('name').notNullable()
+      table.string('email').unique().notNullable()
+      table.string('password').notNullable()
+      table.string('address').notNullable()
+      table.integer('address_number').notNullable()
+      table.string('cep').notNullable()
+      table.string('cellphone').notNullable()
       table.timestamps(true)
     })
   }
