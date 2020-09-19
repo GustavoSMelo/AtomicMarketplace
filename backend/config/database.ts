@@ -89,9 +89,13 @@ const databaseConfig: DatabaseConfig & { orm: Partial<OrmConfig> } = {
     },
 
     test: {
-      client: 'sqlite',
+      client: 'pg',
       connection: {
-        filename: Application.tmpPath('../test/database.sqlite'),
+        host: Env.get('DB_HOST', '127.0.0.1') as string,
+        port: Number(Env.get('DB_PORT', 5432)),
+        user: Env.get('DB_USER', 'lucid') as string,
+        password: Env.get('DB_PASSWORD', 'lucid') as string,
+        database: Env.get('DB_NAME', 'atomictest') as string,
       },
       useNullAsDefault: true,
       healthCheck: false,
