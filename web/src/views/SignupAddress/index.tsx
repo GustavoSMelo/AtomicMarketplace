@@ -7,7 +7,7 @@ import logo from '../../assets/images/singup.png'
 import { FaArrowLeft } from 'react-icons/fa'
 import './style.css'
 
-const signup = () => {
+const signupAddress = () => {
   return (
     <>
       <Navbar />
@@ -19,15 +19,19 @@ const signup = () => {
           <img src={logo} alt="image signup" />
           <form>
             <h1>
-              Bem vindo,
-              <br />
-              <span>Se registre-se para usufruir do nosso site</span>
+              Falta pouco para você ter acesso a plataforma.
+
             </h1>
-            <Input type="text" placeholder="Seu nome" />
-            <Input type="email" placeholder="Seu melhor E-mail" />
-            <Input type="password" placeholder="Sua Senha" />
+            <Input type="text" placeholder="CEP" />
+            <Input type="text" placeholder="Nome da Rua" />
+            <Input type="text" placeholder="Número" />
+            <Input type="text" placeholder="Cidade" />
+            <Input type="text" placeholder="Bairro" />
+            <Input type="text" placeholder="Estado" />
+
+
             <br />
-            <Link to="/signupaddress"> <Button type="button" value="Continuar" /></Link>
+            <Button type="button" value="Registrar" />
 
           </form>
         </section>
@@ -36,4 +40,4 @@ const signup = () => {
   )
 }
 
-export default signup
+export default signupAddress
