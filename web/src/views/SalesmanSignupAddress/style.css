@@ -1,0 +1,83 @@
+
+  .container-salesman-signup .form img{
+    display: none;
+   }
+
+
+   .container-salesman-signup .form{
+
+     display: flex;
+     justify-content: center;
+     flex-direction: row;
+     }
+     .container-salesman-signup form{
+       margin-top: 5rem;
+       margin-right: 5rem;
+       height: 70vh;
+       width: 50vw;
+     }
+     .arrow-back{
+       height: -20vh;
+       color: #000;
+     }
+
+     .container-salesman-signup h1{
+       margin-top: 2rem;
+       margin-bottom: 1rem;
+     }
+     .arrow-back{
+     display: flex;
+       height: 60vh;
+       color: #000;
+     }
+
+ @media (min-width: 1100px) {
+   .container-salesman-signup{
+     width: 100vw;
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     justify-content: center;
+     animation-name: up;
+     animation-duration: 1000ms;
+   }
+   @keyframes up {
+     from {
+       opacity: 0;
+       transform: translateY(15px);
+     }
+     to {
+       opacity: 1;
+     }
+   }
+   .container-salesman-signup .form{
+   justify-content: space-between;
+   }
+   .container-salesman-signup form{
+     height: 70vh;
+     width: 20vw;
+   }
+   .arrow-back{
+     height: 80vh;
+   }
+
+   .container-salesman-signup h1{
+     margin-top: 2rem;
+     width: 25vw;
+     margin-bottom: 1rem;
+   }
+
+
+   .container-salesman-signup .form img{
+     display: flex;
+    width: 50%;
+    }
+
+   .link-register{
+     color: #2c2c2c;
+     text-decoration: none;
+     font-size: 18px;
+
+   }
+
+ }
