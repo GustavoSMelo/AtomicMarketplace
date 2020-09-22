@@ -3,6 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Main from '../views/main'
 import Login from '../views/login'
 import signup from '../views/signup'
+import signupAddress from '../views/SignupAddress'
+
 import AdminLogin from '../views/AdminLogin'
 import SalesmanLogin from '../views/SalesmanLogin'
 import SalesmanSignup from '../views/SalesmanSignup'
@@ -26,6 +28,8 @@ const Routes = () => {
         <Route exact path='/product/details' component={ProductDetails} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/signup' component={signup} />
+        <Route exact path='/signupaddress' component={signupAddress} />
+
         <Route exact path='/search' component={Search} />
         <Route exact path='/cart' component={Cart} />
         <Route exact path='/admin/login' component={AdminLogin} />
