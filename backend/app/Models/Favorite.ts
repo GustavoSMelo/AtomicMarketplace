@@ -1,17 +1,11 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, column, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 import Product from './Product'
 
-export default class Venda extends BaseModel {
+export default class Favorite extends BaseModel {
   @column({ isPrimary: true })
   public id: number
-
-  @column()
-  public price_sale : number
-
-  @column()
-  public payment_form : string
 
   @column()
   public id_user : number

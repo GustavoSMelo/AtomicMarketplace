@@ -3,15 +3,12 @@ import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import User from './User'
 import Product from './Product'
 
-export default class Venda extends BaseModel {
+export default class Commentary extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
   @column()
-  public price_sale : number
-
-  @column()
-  public payment_form : string
+  public commentary : string
 
   @column()
   public id_user : number
