@@ -11,6 +11,8 @@ export default class UserValidator {
         password: Joi.string().required(),
         address: Joi.string().required(),
         address_number: Joi.string().required().max(4),
+        state: Joi.string().required(),
+        neighborhood: Joi.string().required(),
       }),
     })
     await next()
