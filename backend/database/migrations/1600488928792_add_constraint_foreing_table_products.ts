@@ -5,7 +5,7 @@ export default class Products extends BaseSchema {
 
   public async up () {
     this.schema.table(this.tableName, (table) => {
-      table.foreign('salesman_id').references('id').inTable('salesman')
+      table.foreign('salesman_id').references('id').inTable('salesmen')
     })
   }
 

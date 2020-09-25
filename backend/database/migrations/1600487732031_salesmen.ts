@@ -1,7 +1,7 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
 export default class Salesmen extends BaseSchema {
-  protected tableName = 'salesman'
+  protected tableName = 'salesmen'
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
@@ -9,7 +9,7 @@ export default class Salesmen extends BaseSchema {
       table.string('email').notNullable()
       table.string('address').notNullable()
       table.string('password').notNullable()
-      table.string('cpnj').notNullable()
+      table.string('cnpj').notNullable()
       table.string('company_name').notNullable()
       table.timestamps(true)
     })
