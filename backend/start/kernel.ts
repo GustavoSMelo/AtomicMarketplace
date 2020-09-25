@@ -10,6 +10,11 @@
 */
 
 import Server from '@ioc:Adonis/Core/Server'
+import multer from 'multer'
+import multerConfig from '../config/multer'
+
+const uploads = multer(multerConfig)
+
 /*
 |--------------------------------------------------------------------------
 | Global middleware
