@@ -12,7 +12,7 @@ const Cart = () => {
   return (
     <>
       <Navbar />
-      <Container data-testid='Container' haveProduct={false}>
+      <Container data-testid='Container' haveProduct={true}>
         <section data-testid='without-product'>
           <img data-testid='image-alert' src={EmptyShoppingCart} alt='Empty shopping cart' />
           <h1>Você não tem produtos na sacola ainda</h1>
