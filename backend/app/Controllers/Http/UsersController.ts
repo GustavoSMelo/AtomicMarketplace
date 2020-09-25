@@ -17,6 +17,8 @@ export default class UsersController {
     user.password = passwordHash
     user.cep = data.cep
     user.cellphone = data.cellphone
+    user.state = data.state
+    user.neighborhood = data.neighborhood
 
     await user.save()
 
@@ -59,8 +61,16 @@ export default class UsersController {
     user.address = (newdatas.address !== '' || newdatas.address !== undefined || newdatas.address !== null
       ? newdatas.address:user.address)
 
-      user.cellphone = (newdatas.cellphone !== '' || newdatas.cellphone !== undefined || newdatas.cellphone !== null
+    user.cellphone = (newdatas.cellphone !== '' || newdatas.cellphone !== undefined || newdatas.cellphone !== null
       ? newdatas.cellphone:user.cellphone)
+
+    user.state = (newdatas.state !== '' || newdatas.state !== undefined || newdatas.state !== null
+      ? newdatas.state:user.state)
+
+    user.neighborhood = (newdatas.neighborhood !== '' ||
+    newdatas.neighborhood !== undefined ||
+    newdatas.neighborhood !== null
+      ? newdatas.neighborhood:user.neighborhood)
 
     return user
   }
