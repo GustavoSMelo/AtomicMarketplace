@@ -22,6 +22,8 @@ import Route from '@ioc:Adonis/Core/Route'
 
 import UserController from '../app/Controllers/Http/UsersController'
 import SessionController from '../app/Controllers/Http/SessionController'
+import ProductsController from '../app/Controllers/Http/ProductsController'
+import SalesmanController from '../app/Controllers/Http/SalesmenController'
 
 Route.get('/', async () => {
   return { hello: 'world' }
@@ -36,3 +38,9 @@ Route.post('/user/show', new UserController().Show).middleware('deleteShowUser')
 
 //Session User
 Route.post('/user/session', new SessionController().Store).middleware('UserSession')
+
+//Salesman
+Route.post('/salesman', new SalesmanController().Store)
+
+//Products
+Route.post('/products', new ProductsController().Store)
