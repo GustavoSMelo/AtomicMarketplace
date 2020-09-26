@@ -11,6 +11,9 @@ export default class Commentary extends BaseModel {
   public commentary : string
 
   @column()
+  public rating : number
+
+  @column()
   public id_user : number
 
   @column()
