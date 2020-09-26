@@ -1,7 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import ProductsModel from '../../Models/Product'
 import Application from '@ioc:Adonis/Core/Application'
-import bcrypt from 'bcryptjs'
 import SalesmanModel from '../../Models/Salesmen'
 
 export default class ProductsController {
@@ -38,5 +37,65 @@ export default class ProductsController {
     product.product_price = product_price
 
     await product.save()
+  }
+
+  public async Update({request, response} : HttpContextContract) {
+    const data = request.all()
+    const { searchid } = request.request.headers
+    const product = await ProductsModel.findOrFail(searchid)
+
+    if(data.kind_prod) {
+      product.kind_prod = data.kind_prod
+    }
+    if(data.product_name){
+      product.product_name = data.product_name
+    }
+    if(data.brand){
+      product.brand = data.brand
+    }
+    if(data.amount){
+      product.amount = data.amoutn
+    }
+
+    //eslint-disable-next-line
+    const product_image = request.file('product_image')
+
+    if(product_image){
+      //eslint-disable-next-line
+      let product_image_name = new Date().getTime().toString(16)
+      product_image_name += `${(Math.random() * 16).toString(16)}.${product_image?.extname}`
+      product_image.move(Application.tmpPath('uploads'))
+
+      product.product_image = product_image_name
+    }
+
+    await product.save()
+  }
+
+  public async Index () {
+    const allProducts = await ProductsModel.all()
+
+    return allProducts
+  }
+
+  public async Show ({ request } : HttpContextContract){
+    const {product_name} = request.all()
+    const allProducts = await ProductsModel.findBy('product_name', product_name)
+
+    return allProducts
+  }
+
+  public async Destroy ({request, response} : HttpContextContract){
+    const {searchid} = request.request.headers
+
+    const product = await ProductsModel.find(searchid)
+
+    if(!product){
+      return response.status(401).json({Error: 'product not found'})
+    }
+
+    await product.delete()
+
+    return response.json({Success: 'product deleted with success'})
   }
 }
