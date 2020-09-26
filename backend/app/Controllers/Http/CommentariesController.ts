@@ -72,4 +72,18 @@ export default class CommentariesController {
 
     return allCommentaries
   }
+
+  public async Destroy ({request, response} : HttpContextContract){
+    const {commentaryid} = request.request.headers
+
+    const comment = await CommentaryModel.find(commentaryid)
+
+    if(!comment){
+      return response.status(404).json({Error: 'commentary does not exist'})
+    }
+
+    await comment.delete()
+
+    return response.json({Success: 'Commentary deleted with success'})
+  }
 }
