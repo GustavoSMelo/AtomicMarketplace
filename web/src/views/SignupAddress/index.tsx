@@ -25,14 +25,10 @@ const signupAddress = () => {
             <Input type="text" placeholder="CEP" />
             <Input type="text" placeholder="Nome da Rua" />
             <Input type="text" placeholder="Número" />
-            <Input type="text" placeholder="Cidade" />
             <Input type="text" placeholder="Bairro" />
             <Input type="text" placeholder="Estado" />
-
-
             <br />
-            <Button type="button" value="Registrar" />
-
+            <Button type="button" value="Registrar"/>
           </form>
         </section>
       </div>
