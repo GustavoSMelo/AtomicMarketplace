@@ -27,6 +27,9 @@ export default class Product extends BaseModel {
   @column()
   public salesman_id : number
 
+  @column()
+  public description : string
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
