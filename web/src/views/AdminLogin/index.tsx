@@ -21,7 +21,7 @@ const AdminLogin: React.FC = () => {
             <Input data-testid="login-input" type="email" placeholder="E-mail" />
             <Input data-testid="password-input" type="text" placeholder="Seu id" />
 
-            <Button type="button" value="Entrar" /> <br />
+            <Button type="button" value="Entrar" onClickFunction={null} /> <br />
 
           </form>
         </section>
