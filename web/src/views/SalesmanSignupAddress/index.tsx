@@ -31,7 +31,7 @@ const SalesmanSignupAddress: React.FC = () => {
 
 
             <br />
-            <Button type="button" value="Registrar" />
+            <Button type="button" value="Registrar"/>
 
           </form>
         </section>
