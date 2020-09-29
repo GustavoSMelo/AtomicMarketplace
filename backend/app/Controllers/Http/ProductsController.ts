@@ -2,11 +2,12 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import ProductsModel from '../../Models/Product'
 import Application from '@ioc:Adonis/Core/Application'
 import SalesmanModel from '../../Models/Salesmen'
+import path from 'path'
 
 export default class ProductsController {
   public async Store ({request, response} : HttpContextContract) {
     // eslint-disable-next-line
-    const { product_name, kind_prod, brand, amount, product_price } = request.all()
+    const { product_name, kind_prod, brand, amount, product_price, description } = request.all()
     // eslint-disable-next-line
     const product_image = request.file('product_image')
     // eslint-disable-next-line
@@ -22,7 +23,7 @@ export default class ProductsController {
     let product_image_name = new Date().getTime().toString(16)
     product_image_name += `${(Math.random() * 16).toString(16)}.${product_image?.extname}`
 
-    product_image?.move(Application.tmpPath('uploads'), {
+    await product_image?.move(Application.tmpPath('../public/uploads'), {
       name: product_image_name,
     })
 
@@ -35,6 +36,7 @@ export default class ProductsController {
     product.brand = brand
     product.amount = amount
     product.product_price = product_price
+    product.description = description
 
     await product.save()
   }
@@ -57,6 +59,10 @@ export default class ProductsController {
       product.amount = data.amoutn
     }
 
+    if(data.description) {
+      product.description = data.description
+    }
+
     //eslint-disable-next-line
     const product_image = request.file('product_image')
 
@@ -64,7 +70,7 @@ export default class ProductsController {
       //eslint-disable-next-line
       let product_image_name = new Date().getTime().toString(16)
       product_image_name += `${(Math.random() * 16).toString(16)}.${product_image?.extname}`
-      product_image.move(Application.tmpPath('uploads'))
+      product_image.move(Application.tmpPath('../public/uploads'))
 
       product.product_image = product_image_name
     }
@@ -80,7 +86,7 @@ export default class ProductsController {
 
   public async Show ({ request } : HttpContextContract){
     const {product_name} = request.all()
-    const allProducts = await ProductsModel.findBy('product_name', product_name)
+    const allProducts = await ProductsModel.query().where('product_name', 'like', `%${product_name}%`)
 
     return allProducts
   }
@@ -97,5 +103,13 @@ export default class ProductsController {
     await product.delete()
 
     return response.json({Success: 'product deleted with success'})
+  }
+
+  public async ShowSalesmanOnly ({request} : HttpContextContract){
+    const {salesman_id} = request.request.headers
+
+    const products = await ProductsModel.query().where('salesman_id', salesman_id)
+
+    return products
   }
 }
