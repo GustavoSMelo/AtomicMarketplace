@@ -5,11 +5,20 @@ interface IntputProps {
   placeholder: string;
   type: string;
   min?: string;
+  onTextChanged?: any;
+  value?: string | number
 }
-const input: React.FC<IntputProps> = ({ placeholder, type, min }) => {
+const input: React.FC<IntputProps> = ({ placeholder, type, min, onTextChanged, value }) => {
   return (
     <>
-      <input data-testid='input-component' className="input-data" type={type} placeholder={placeholder} min={min} required />
+      <input data-testid='input-component'
+        className="input-data"
+        value={value}
+        onChange={e => onTextChanged(e.target.value)}
+        type={type}
+        placeholder={placeholder}
+        min={min}
+        required />
     </>
   )
 }
