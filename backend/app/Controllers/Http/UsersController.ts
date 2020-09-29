@@ -25,10 +25,10 @@ export default class UsersController {
     return user
   }
 
-  public async Index (){
+  public async Index ({request, response} : HttpContextContract){
     const allUsers = await UserModel.all()
 
-    return allUsers
+    return response.json({users: allUsers})
   }
 
   public async Update ({ request } : HttpContextContract) {
@@ -89,7 +89,7 @@ export default class UsersController {
   }
 
   public async Show ({request,response} : HttpContextContract){
-    const { searchid } = request.request.headers
+    const { searchid } = request.all()
 
     try{
       const user = UserModel.findOrFail(searchid)
