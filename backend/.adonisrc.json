@@ -23,6 +23,7 @@
   ],
   "metaFiles": [
     ".env",
-    ".adonisrc.json"
+    ".adonisrc.json",
+    "public/uploads/**"
   ]
 }
