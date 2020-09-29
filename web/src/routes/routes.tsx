@@ -3,12 +3,12 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Main from '../views/main'
 import Login from '../views/login'
 import signup from '../views/signup'
-import signupAddress from '../views/SignupAddress'
 
 import AdminLogin from '../views/AdminLogin'
 import SalesmanLogin from '../views/SalesmanLogin'
 import SalesmanSignup from '../views/SalesmanSignup'
 import SalesmanSignupAddress from '../views/SalesmanSignupAddress'
+import SalesmanHub from '../views/SalesmanHub'
 
 import UserProfile from '../views/userProfile'
 import Search from '../views/search/index'
@@ -30,20 +30,19 @@ const Routes = () => {
         <Route exact path='/product/details' component={ProductDetails} />
         <Route exact path='/login' component={Login} />
         <Route exact path='/signup' component={signup} />
-        <Route exact path='/signupaddress' component={signupAddress} />
 
         <Route exact path='/search' component={Search} />
         <Route exact path='/cart' component={Cart} />
         <Route exact path='/admin/login' component={AdminLogin} />
+
         <Route exact path='/salesman/login' component={SalesmanLogin} />
         <Route exact path='/salesman/signup' component={SalesmanSignup} />
         <Route exact path='/salesman/signupaddress' component={SalesmanSignupAddress} />
-
-
-
         <Route exact path='/salesman/create/product' component={CreateProduct} />
         <Route exact path='/salesman/delete/product' component={DeleteProduct} />
         <Route exact path='/salesman/edit/product' component={EditProduct} />
+        <Route exact path='/salesman/hub' component={SalesmanHub} />
+
         <Route exact path='/user/profile' component={UserProfile} />
         <Route exact path='/follow/product' component={FollowProduct} />
         <Route exact path='/buy/product/detail' component={BuyedProductDetail} />
