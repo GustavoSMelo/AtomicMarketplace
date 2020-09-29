@@ -25,7 +25,7 @@ const EditProducts: React.FC = () => {
         <h3>Descrição do Produto</h3>
         <textarea name="descricao" id="descricao" className="descricao" ></textarea>
 
-        <Button type="button" value="Editar Produto" />
+        <Button type="button" value="Editar Produto"/>
       </form>
     </Container>
   </>;
