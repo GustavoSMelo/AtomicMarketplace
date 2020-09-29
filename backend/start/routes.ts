@@ -15,7 +15,7 @@ Route.get('/', async () => {
 
 //User routes
 Route.post('/user', new UserController().Store).middleware('newUser')
-Route.get('/user', new UserController().Index).middleware('Auth')
+Route.get('/user', new UserController().Index)
 Route.put('/user', new UserController().Update).middleware('editUser')
 Route.delete('/user', new UserController().Destroy).middleware('deleteShowUser')
 Route.post('/user/show', new UserController().Show).middleware('deleteShowUser')
@@ -33,9 +33,10 @@ Route.get('/salesman/show', new SalesmanController().Show)
 //Products - checked
 Route.post('/products', new ProductsController().Store).middleware('Auth')
 Route.get('/products', new ProductsController().Index)
-Route.post('/products/show', new ProductsController().Index)
+Route.post('/products/show', new ProductsController().Show)
 Route.put('/products', new ProductsController().Update).middleware('Auth')
 Route.delete('/products', new ProductsController().Destroy)
+Route.get('/products/show/salesman', new ProductsController().ShowSalesmanOnly)
 
 // Favorites - checked
 Route.post('/favorites', new FavoritesController().Store).middleware('Auth')
@@ -46,7 +47,7 @@ Route.delete('/favorites', new FavoritesController().Destroy).middleware('Auth')
 Route.post('/venda', new VendaController().Store).middleware('Auth')
 Route.get('/venda', new VendaController().Index).middleware('Auth')
 
-// commentary -
+// commentary - checked
 Route.post('/commentary', new CommentaryController().Store).middleware('Auth')
 Route.put('/commentary', new CommentaryController().Update).middleware('Auth')
 Route.get('/commentary', new CommentaryController().Show)
