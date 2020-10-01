@@ -31,21 +31,21 @@ export default class UsersController {
     return response.json({ users: allUsers })
   }
 
-  public async Update({ request }: HttpContextContract) {
-    const newdatas = request.all()
+  public async Update({ request, response }: HttpContextContract) {
+
+    const newdata = request.all()
     const { searchid } = request.request.headers
 
     const user = await UserModel.findOrFail(searchid)
-    const passwordHash = await bcrypt.hash(newdatas.password, 8)
-    user.name = newdatas.name
-    user.email = newdatas.email
-    user.cep = newdatas.cep
-    user.password = passwordHash
-    user.address = newdatas.address
-    user.address_number = newdatas.address_number
-    user.cellphone = newdatas.cellphone
-    user.state = newdatas.state
-    user.neighborhood = newdatas.neighborhood
+    user.name = newdata.name
+    user.email = newdata.email
+    user.address = newdata.address
+    user.address_number = newdata.address_number
+    user.password = newdata.password
+    user.cep = newdata.cep
+    user.cellphone = newdata.cellphone
+    user.state = newdata.state
+    user.neighborhood = newdata.neighborhood
 
 
     return await user.save();

@@ -7,13 +7,13 @@ export default class EditUserValidator {
       [Segments.BODY]: Joi.object().keys({
         name: Joi.string().required(),
         email: Joi.string().email().required(),
-        cep: Joi.string().max(9).required(),
         password: Joi.string().min(8).required(),
-        address: Joi.string(),
+        address: Joi.string().required(),
         address_number: Joi.string().max(4),
+        cep: Joi.string().max(9).required(),
+        cellphone: Joi.string().max(11).required(),
         state: Joi.string().required(),
         neighborhood: Joi.string().required(),
-        cellphone: Joi.string().max(11).required()
       }),
     })
     await next()
