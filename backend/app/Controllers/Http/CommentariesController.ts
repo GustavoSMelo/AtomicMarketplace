@@ -86,4 +86,10 @@ export default class CommentariesController {
 
     return response.json({Success: 'Commentary deleted with success'})
   }
+
+  public async Index ({ request } : HttpContextContract) {
+    const commentaries = await CommentaryModel.all()
+
+    return commentaries
+  }
 }
