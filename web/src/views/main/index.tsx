@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Navbar from '../../components/navbar'
-import { FaRegHeart, FaStream, FaStar, FaShoppingBag } from 'react-icons/fa'
+import { FaRegHeart, FaStream, FaStar, FaShoppingBag, FaHeart } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { Container, Banner, Cart } from './styled'
 import blueshoes from '../../assets/images/bannershoes2.png'
@@ -8,12 +8,76 @@ import redshoes from '../../assets/images/shoesvermelhos.png'
 import purpleshoes from '../../assets/images/purpleshoes.png'
 import brownshoes from '../../assets/images/brownshoes.png'
 import Footer from '../../components/footer'
+import ProductInterface from '../../interfaces/ProductInterface'
+import api from '../../api'
+import CommentaryInterface from '../../interfaces/CommentaryInterface'
+import FavoriteInterface from '../../interfaces/FavoriteInterface'
+import PopupCard from '../../components/popupStatusCard'
 
 const Main = () => {
   const [colorBanner, setColorBanner] = useState('#6970DF')
   const [imageBanner, setImageBanner] = useState(blueshoes)
   const [titleBanner, setTitleBanner] = useState('Tênis Air Jordan XXXIII')
   const [descriptionBanner, setDescriptionBanner] = useState('Temos sapatos perfeitos para a sua caminhada ou academia')
+  const [Product, setProduct] = useState<ProductInterface[]>([])
+  const [Commentaries, setCommentaries] = useState<CommentaryInterface[]>([])
+  const [favorites, setFavorites] = useState<FavoriteInterface[]>([])
+  const [status, setStatus] = useState(<></>)
+
+  const getDataByAPI = async () => {
+    const response = await api.get('/products')
+
+    setProduct(response.data)
+
+    const commentaries_response = await api.get<CommentaryInterface[]>('/commentaries')
+    setCommentaries(commentaries_response.data)
+
+    const favorite_response = await api.get<FavoriteInterface[]>('/favorites', {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem('token')}`,
+        userid: localStorage.getItem('iduser')
+      }
+    })
+    setFavorites(favorite_response.data)
+  }
+
+  const insertFavorite = async (productid : Number) => {
+    try {
+      await api.post('/favorites', {}, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+          userid: localStorage.getItem('iduser'),
+          productid
+        }
+      })
+    } catch (err) {
+      setStatus(<PopupCard backgroundcolor='#FA6450' textcolor='#5C241D' content='Erro ao favoritar produto '/>)
+      console.log({Error: err})
+    }
+  }
+
+  const deleteFavorite = async (favoriteid: Number) => {
+    try {
+      await api.delete('/favorites', {
+        headers: {
+          favoriteid,
+          authorization: `Bearer ${localStorage.getItem('token')}`
+        }
+      })
+    } catch (err) {
+      setStatus(<PopupCard backgroundcolor='#FA6450' textcolor='#5C241D' content='Erro ao remover favorito do produto'/>)
+    }
+  }
+
+  useEffect(() => {
+    getDataByAPI()
+  }, [favorites])
+
+  useEffect(() => {
+    setTimeout(() => {
+      setStatus(<></>)
+    }, 3000)
+  }, [status])
 
   const changeColor = (color: string) => {
     setColorBanner(color)
@@ -70,32 +134,50 @@ const Main = () => {
       </Banner>
       <Container>
         <ul data-testid='product-list'>
-          <li data-testid='product' className='list-card'>
-            <span className='IconContainer'>
-              <span className='heart'>
-                <FaRegHeart color={'#f00'} />
+          {Product.map(prod => (
+            <li data-testid='product' className='list-card' key={prod.id}>
+              <span className='IconContainer'>
+
+                {favorites.find(fav => fav.id_user === Number(localStorage.getItem('iduser')) &&
+                fav.id_product === prod.id) ?
+                  <span className='heart'>
+                    <FaHeart color={'#f00'} onClick={() => deleteFavorite(favorites.find(fav => fav.id_user === Number(localStorage.getItem('iduser')) &&
+                fav.id_product === prod.id).id)} />
+                  </span> :
+                  <span className='heart' onClick={() => insertFavorite(prod.id)}>
+                    <FaRegHeart color={'#f00'} />
+                  </span>
+                }
+
+                <span>
+                  {Commentaries.length > 0 ? Commentaries.filter(comment => comment.id_product !== prod.id
+                  ).map(comment => {
+                    let sum = 0
+                    sum += comment.rating
+
+                    return sum / Commentaries.length
+                  }) : 0} <FaStar color={'#FFF36B'} />
+                </span>
               </span>
-              <span>
-                4.3 <FaStar color={'#FFF36B'} />
-              </span>
-            </span>
-            <figure>
-              <img src='https://cdn.pixabay.com/photo/2013/07/12/18/20/chucks-153310_960_720.png' alt='product image' />
-            </figure>
-            <h3>All-star</h3>
-            <h1>R$ 100.00</h1>
-            <section className="RowContainer">
-              <Cart type='button' background={'#fff'} color={'#67D651'}>
-                <FaShoppingBag />
-              </Cart>
-              <Link to='/product/details' className='Details'>
-                <FaStream /> Detalhes
-              </Link>
-            </section>
-          </li>
+              <figure>
+                <img src={`http://localhost:3333/uploads/${prod.product_image}`} alt='product image' />
+              </figure>
+              <h3>{prod.product_name}</h3>
+              <h1>BRL {prod.product_price}</h1>
+              <section className="RowContainer">
+                <Cart type='button' background={'#fff'} color={'#67D651'}>
+                  <FaShoppingBag />
+                </Cart>
+                <Link to={`/product/details/${prod.id}`} className='Details'>
+                  <FaStream /> Detalhes
+                </Link>
+              </section>
+            </li>
+          ))}
         </ul>
       </Container>
       <Footer />
+      {status}
     </>
   )
 }
