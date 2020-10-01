@@ -18,14 +18,6 @@ export default class FavoritesController {
       response.status(401).json({Error: 'User not found'})
     }
 
-    const favoriteAlreadyExist = await FavoriteModel.query().
-      where('id_user', Number(userid)).
-      where('id_product', Number(productid))
-
-    if(favoriteAlreadyExist){
-      return response.status(400).json({Error: 'you already favorited this product'})
-    }
-
     const favorite = new FavoriteModel()
     //eslint-disable-next-line
     favorite.id_user = Number(userid)
