@@ -39,9 +39,9 @@ export default class UsersController {
     const user = await UserModel.findOrFail(searchid)
     user.name = newdata.name
     user.email = newdata.email
+    user.password = newdata.password
     user.address = newdata.address
     user.address_number = newdata.address_number
-    user.password = newdata.password
     user.cep = newdata.cep
     user.cellphone = newdata.cellphone
     user.state = newdata.state
