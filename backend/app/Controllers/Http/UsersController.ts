@@ -37,15 +37,41 @@ export default class UsersController {
     const { searchid } = request.request.headers
 
     const user = await UserModel.findOrFail(searchid)
-    user.name = newdata.name
-    user.email = newdata.email
-    user.password = newdata.password
-    user.address = newdata.address
-    user.address_number = newdata.address_number
-    user.cep = newdata.cep
-    user.cellphone = newdata.cellphone
-    user.state = newdata.state
-    user.neighborhood = newdata.neighborhood
+    if (newdata.name) {
+      user.name = newdata.name
+    }
+    if (newdata.email) {
+      user.email = newdata.email
+    }
+    if (newdata.password) {
+      const passwordHash = await bcrypt.hash(newdata.password, 8)
+      user.password = passwordHash
+    }
+    if (newdata.address) {
+      user.address = newdata.address
+    }
+
+    if (newdata.address_number) {
+      user.address_number = newdata.address_number
+    }
+
+    if (newdata.cep) {
+      user.cep = newdata.cep
+    }
+
+    if (newdata.cellphone) {
+      user.cellphone = newdata.cellphone
+    }
+
+    if (newdata.state) {
+      user.state = newdata.state
+    }
+
+    if (newdata.neighborhood) {
+      user.neighborhood = newdata.neighborhood
+    }
+
+
 
 
     return await user.save();
