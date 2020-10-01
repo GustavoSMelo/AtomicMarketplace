@@ -37,16 +37,20 @@ export default class UsersController {
     const { searchid } = request.request.headers
 
     const user = await UserModel.findOrFail(searchid)
+
     if (newdata.name) {
       user.name = newdata.name
     }
+
     if (newdata.email) {
       user.email = newdata.email
     }
+
     if (newdata.password) {
       const passwordHash = await bcrypt.hash(newdata.password, 8)
       user.password = passwordHash
     }
+
     if (newdata.address) {
       user.address = newdata.address
     }
