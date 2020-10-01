@@ -5,5 +5,7 @@ export default interface Product {
   brand: string,
   description: string,
   kind_prod: string,
-  product_price: number
+  product_price: number,
+  id: number,
+  created_at: Date,
 }
