@@ -2,7 +2,6 @@ import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import ProductsModel from '../../Models/Product'
 import Application from '@ioc:Adonis/Core/Application'
 import SalesmanModel from '../../Models/Salesmen'
-import path from 'path'
 
 export default class ProductsController {
   public async Store ({request, response} : HttpContextContract) {
@@ -39,6 +38,8 @@ export default class ProductsController {
     product.description = description
 
     await product.save()
+
+    return product
   }
 
   public async Update({request, response} : HttpContextContract) {
@@ -56,7 +57,7 @@ export default class ProductsController {
       product.brand = data.brand
     }
     if(data.amount){
-      product.amount = data.amoutn
+      product.amount = data.amount
     }
 
     if(data.description) {
@@ -76,6 +77,8 @@ export default class ProductsController {
     }
 
     await product.save()
+
+    return product
   }
 
   public async Index () {
@@ -111,5 +114,13 @@ export default class ProductsController {
     const products = await ProductsModel.query().where('salesman_id', salesman_id)
 
     return products
+  }
+
+  public async ShowOnlyProduct ({request} : HttpContextContract) {
+    const { id } = request.request.headers
+
+    const product = await ProductsModel.find(id)
+
+    return product
   }
 }
