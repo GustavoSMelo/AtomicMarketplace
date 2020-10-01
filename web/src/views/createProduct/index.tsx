@@ -39,18 +39,16 @@ const CreateProduct: React.FC = () => {
       fd.append('brand', brand)
       fd.append('product_price', String(price))
       fd.append('description', description)
-
       await api.post('/products', fd, {
         headers: {
           salesman_id: localStorage.getItem('salesmanid'),
-          authorization : `Bearer ${localStorage.getItem('token')}`
+          authorization: `Bearer ${localStorage.getItem('token')}`
         }
       })
 
-      setStatus(<PopupCard backgroundcolor='#51B556' textcolor='#295C2C' content='Produto criado com sucesso'/>)
+      return setStatus(<PopupCard backgroundcolor='#51B556' textcolor='#295C2C' content='Produto criado com sucesso'/>)
     } catch (err) {
-      setStatus(<PopupCard backgroundcolor='#FA6450' textcolor='#5C241D' content='Falha a criar produto, verifique os campos e tente novamente'/>)
-      console.log(err)
+      setStatus(<PopupCard backgroundcolor='#FA6450' textcolor='#5C241D' content='Produto criado com sucesso'/>)
     }
   }
 
