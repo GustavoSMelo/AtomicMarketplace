@@ -7,7 +7,7 @@ import Trash from '../../assets/images/icons/trash.svg'
 import Shutdown from '../../assets/images/icons/shutdown.svg'
 import { Link } from 'react-router-dom'
 import ProductInterface from '../../interfaces/ProductInterface'
-import { FaEye, FaPencilAlt, FaTrash } from 'react-icons/fa'
+import { FaEye, FaPencilAlt } from 'react-icons/fa'
 
 const SalesmanHub = () => {
   const [products, setProducts] = useState<ProductInterface[]>([])
@@ -18,8 +18,6 @@ const SalesmanHub = () => {
         searchid: localStorage.getItem('salesmanid') }
     })
 
-    console.log(response_salesman.data)
-
     const response_products = await api.get('/products/show/salesman', {
       headers: {
         salesman_id: localStorage.getItem('salesmanid')
@@ -27,6 +25,13 @@ const SalesmanHub = () => {
     })
 
     setProducts(response_products.data)
+  }
+
+  const Logout = () => {
+    localStorage.removeItem('salesmanname')
+    localStorage.removeItem('salesmanemail')
+    localStorage.removeItem('salesmanid')
+    localStorage.removeItem('token')
   }
 
   useEffect(() => {
@@ -37,7 +42,7 @@ const SalesmanHub = () => {
       <h1>Seja bem vindo vendedor</h1>
       <h2>O que deseja fazer ?</h2>
       <section>
-        <Link className='link' to='/'>
+        <Link className='link' to=''>
           <figure>
             <img src={EditProfileIcon} alt='profile config icon' />
             <figcaption>Editar perfil</figcaption>
@@ -56,7 +61,7 @@ const SalesmanHub = () => {
           </figure>
         </Link>
 
-        <Link className='link' to='/'>
+        <Link className='link' to='/' onClick={() => Logout()}>
           <figure>
             <img src={Shutdown} alt='Shutdown button'/>
             <figcaption>Desligar</figcaption>
@@ -68,7 +73,7 @@ const SalesmanHub = () => {
         <ul>
           {products.map(product => {
             return (
-              <li key={product.product_image}>
+              <li key={product.id}>
                 <figure>
                   <img src={`http://localhost:3333/uploads/${product.product_image}`} />
                   <figcaption>
@@ -79,9 +84,8 @@ const SalesmanHub = () => {
                   </figcaption>
                 </figure>
                 <span>
-                  <FaEye color='#0f0' size={36} />
-                  <FaPencilAlt color='#FBE743' size={36} />
-                  <FaTrash color='#f00' size={36} />
+                  <Link to={`/product/details/${product.id}`}><FaEye color='#0f0' size={36} /> </Link>
+                  <Link to={`/salesman/edit/product/${product.id}`}><FaPencilAlt color='#FBE743' size={36} /></Link>
                 </span>
               </li>
             )
