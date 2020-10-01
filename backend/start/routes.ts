@@ -37,6 +37,7 @@ Route.post('/products/show', new ProductsController().Show)
 Route.put('/products', new ProductsController().Update).middleware('Auth')
 Route.delete('/products', new ProductsController().Destroy)
 Route.get('/products/show/salesman', new ProductsController().ShowSalesmanOnly)
+Route.get('/products/show/only', new ProductsController().ShowOnlyProduct)
 
 // Favorites - checked
 Route.post('/favorites', new FavoritesController().Store).middleware('Auth')
@@ -52,3 +53,4 @@ Route.post('/commentary', new CommentaryController().Store).middleware('Auth')
 Route.put('/commentary', new CommentaryController().Update).middleware('Auth')
 Route.get('/commentary', new CommentaryController().Show)
 Route.delete('/commentary', new CommentaryController().Destroy).middleware('Auth')
+Route.get('/commentaries', new CommentaryController().Index)
