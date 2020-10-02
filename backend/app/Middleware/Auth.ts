@@ -14,9 +14,9 @@ export default class Auth {
     const [, token] = authorization?.split(' ')
 
     try{
-      const decoded = await promisify(jwt.verify)(token, authConfig.secret)
+      await promisify(jwt.verify)(token, authConfig.secret)
     }catch(err){
-      return ctx.response.status(400).json({Error: ''})
+      return ctx.response.status(400).json({Error: 'Token expired'})
     }
     await next()
   }
