@@ -52,7 +52,6 @@ const Main = () => {
       })
     } catch (err) {
       setStatus(<PopupCard backgroundcolor='#FA6450' textcolor='#5C241D' content='Erro ao favoritar produto '/>)
-      console.log({Error: err})
     }
   }
 
@@ -66,6 +65,20 @@ const Main = () => {
       })
     } catch (err) {
       setStatus(<PopupCard backgroundcolor='#FA6450' textcolor='#5C241D' content='Erro ao remover favorito do produto'/>)
+    }
+  }
+
+  const addProductInCart = (productid : Number) => {
+    const cart = localStorage.getItem('cart')
+    const arryCart = cart ? cart.split(',') : []
+
+    if (arryCart.find(index => Number(index) === productid)) {
+      return setStatus(<PopupCard backgroundcolor='#FA6450' textcolor='#5C241D' content='Produto já inserido dentro do carrinho '/>)
+    } else {
+      arryCart.push(productid.toString())
+      localStorage.setItem('cart', arryCart.toString())
+
+      return setStatus(<PopupCard backgroundcolor='#51B556' textcolor='#295C2C' content='produto inserido no carrinho com sucesso '/>)
     }
   }
 
@@ -165,7 +178,7 @@ const Main = () => {
               <h3>{prod.product_name}</h3>
               <h1>BRL {prod.product_price}</h1>
               <section className="RowContainer">
-                <Cart type='button' background={'#fff'} color={'#67D651'}>
+                <Cart type='button' background={'#fff'} color={'#67D651'} onClick={() => addProductInCart(prod.id)}>
                   <FaShoppingBag />
                 </Cart>
                 <Link to={`/product/details/${prod.id}`} className='Details'>

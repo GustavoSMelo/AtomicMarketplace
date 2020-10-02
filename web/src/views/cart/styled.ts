@@ -86,7 +86,8 @@ export const Container = styled.main<{ haveProduct: boolean }>`
     font-size: 32pt;
   }
 
-  article > ul > li > span > button {
+
+  article > ul > li > span > .remove {
     width: 320px;
     margin-top: 15px;
     padding: 15px;
@@ -105,27 +106,23 @@ export const Container = styled.main<{ haveProduct: boolean }>`
     transition: 250ms;
   }
 
-  article > button {
-    width: 250px;
-    margin-left: 35px;
-    border-radius: 5px;
-    border: none;
-    background-color: #65E858;
-    padding: 10px;
+  article > ul > li > span > .buy {
+    width: 320px;
+    margin-top: 15px;
+    padding: 15px;
+    font-weight: bold;
     font-size: 16pt;
+    border: none;
+    border-radius: 5px;
+    background-color: #65E858;
+    color: #fff;
     cursor: pointer;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-direction: row;
-    align-items:center;
-    justify-content: center;
     transition: 250ms;
   }
 
-  article > button:hover{
-    cursor: pointer;
+  article > ul > li > span > .buy:hover{
     background-color: #4DAD42;
     transition: 250ms;
   }
+
 `

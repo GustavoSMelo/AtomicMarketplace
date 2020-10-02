@@ -20,12 +20,12 @@ const Details:React.FC<RouteComponentProps> = ({ match }) => {
   const [product_id, setProduct_id] = useState(0)
   const [Commentary, setCommentary] = useState<CommentaryInterface []>([])
   const [User, setUser] = useState<UserInterface[]>([])
-  const [favorites, setFavorites] = useState<FavoriteInterface[]>([])
   const [status, setStatus] = useState(<></>)
+  const [favorites, setFavorites] = useState<FavoriteInterface []>([])
 
   const getDataByAPI = async () => {
     const { id } = match.params as any
-    try{
+    try {
       const response = await api.get<ProductInterface>('/products/show/only', { headers: {
         id
       }})
@@ -43,20 +43,18 @@ const Details:React.FC<RouteComponentProps> = ({ match }) => {
           productid: id
         }
       })
-
       setCommentary(commentary_response.data)
 
       const user_response = await api.get<UserInterface[]>('/user')
-
       setUser(user_response.data)
 
       const favorite_response = await api.get<FavoriteInterface[]>('/favorites', {
         headers: {
-          authorization: `Bearer ${localStorage.getItem('token')}`,
-          userid: localStorage.getItem('iduser')
+          userid: Number(localStorage.getItem('iduser')),
+          productid: Number(product_id),
+          authorization: `Bearer ${localStorage.getItem('token')}`
         }
       })
-
       setFavorites(favorite_response.data)
     } catch (err) {
       console.log({ Error: err })
@@ -93,7 +91,7 @@ const Details:React.FC<RouteComponentProps> = ({ match }) => {
 
   useEffect(() => {
     getDataByAPI()
-  }, [])
+  }, [favorites])
 
   return (
     <>
@@ -104,19 +102,21 @@ const Details:React.FC<RouteComponentProps> = ({ match }) => {
             <img src={`http://localhost:3333/uploads/${product_image}`} alt='photo_product' />
           </figure>
           <aside className='informations'>
-            <section className='title' data-testid='name'>
-              <h1>{product_name}</h1>
-              {favorites.find(fav => fav.id_user === Number(localStorage.getItem('iduser')) &&
-                fav.id_product === product_id) ?
-                <span className='heart'>
-                  <FaHeart color={'#f00'} onClick={() => deleteFavorite(favorites.find(fav => fav.id_user === Number(localStorage.getItem('iduser')) &&
-                fav.id_product === product_id).id)} />
-                </span> :
-                <span className='heart' onClick={() => insertFavorite(product_id)}>
-                  <FaRegHeart color={'#f00'} />
-                </span>
-              }
-            </section>
+            <article className='information-title'>
+              <section className='title' data-testid='name'>
+                <h1>{product_name}</h1>
+              </section>
+              <span className='heart'>
+                {favorites.find(fav =>
+                  fav.id_user === Number(localStorage.getItem('iduser')) &&
+                  fav.id_product === Number(product_id))
+                  ? <FaHeart onClick={() => deleteFavorite(favorites.find(fav =>
+                    fav.id_user === Number(localStorage.getItem('iduser')) &&
+                    fav.id_product === Number(product_id)).id)} color='#f00' size={32} />
+
+                  : <FaRegHeart onClick={() => insertFavorite(product_id)} color='#f00' size={32}/>}
+              </span>
+            </article>
             <p data-testid='description'>
               {description}
             </p>
