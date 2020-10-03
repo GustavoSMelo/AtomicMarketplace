@@ -3,7 +3,7 @@ import SalesmenModel from '../../Models/Salesmen'
 import bcrypt from 'bcryptjs'
 
 export default class SalesmenController {
-  public async Store ({ request, response } : HttpContextContract) {
+  public async Store({ request, response }: HttpContextContract) {
     const data = request.all()
     const Salesman = new SalesmenModel()
 
@@ -17,50 +17,52 @@ export default class SalesmenController {
 
     await Salesman.save()
 
-    return response.status(200).json({success: 'Salesman created with success '})
+    return response.status(200).json({ success: 'Salesman created with success ' })
   }
 
-  public async Update ({request, response} : HttpContextContract){
-    const newdatas = request.all()
-    const {searchid} = request.request.headers
+  public async Update({ request, response }: HttpContextContract) {
+    const newdata = request.all()
+    const { searchid } = request.request.headers
 
     const Salesman = await SalesmenModel.findOrFail(searchid)
 
-    if(newdatas.password){
-      const newPasswordHashed = await bcrypt.hash(newdatas.password, 8)
-      Salesman.password = newPasswordHashed
+
+    if (newdata.email) {
+      Salesman.email = newdata.email
     }
 
-    Salesman.email = (newdatas.email !== '' || newdatas.email !== undefined || newdatas.email !== null ?
-      newdatas.email:Salesman.email)
+    if (newdata.password) {
+      const passwordHash = await bcrypt.hash(newdata.password, 8)
+      Salesman.password = passwordHash
+    }
 
-    Salesman.company_name = (newdatas.company_name !== '' ||
-      newdatas.company_name !== undefined ||
-      newdatas.company_name !== null ?
-      newdatas.company_name:Salesman.company_name)
+    if (newdata.address) {
+      Salesman.address = newdata.address
+    }
 
-    Salesman.address = (newdatas.address !== '' ||
-      newdatas.address !== undefined ||
-      newdatas.address !== null ?
-      newdatas.address:Salesman.address)
+    if (newdata.company_name) {
+      Salesman.company_name = newdata.company_name
+    }
 
-    Salesman.cnpj = (newdatas.address !== '' ||
-      newdatas.address !== undefined ||
-      newdatas.address !== null ?
-      newdatas.address:Salesman.address)
+    if (newdata.cnpj) {
+      Salesman.cnpj = newdata.cnpj
+    }
+
+
+
 
     await Salesman.save()
 
     return response.status(200)
   }
 
-  public async Index () {
+  public async Index() {
     const allSalesman = await SalesmenModel.all()
 
     return allSalesman
   }
 
-  public async Show ({request} : HttpContextContract) {
+  public async Show({ request }: HttpContextContract) {
     const { searchid } = request.request.headers
     const salesman = await SalesmenModel.findOrFail(searchid)
     return salesman
