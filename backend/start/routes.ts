@@ -8,6 +8,8 @@ import FavoritesController from '../app/Controllers/Http/FavoritesController'
 import CommentaryController from '../app/Controllers/Http/CommentariesController'
 import VendaController from '../app/Controllers/Http/VendasController'
 import SessionSalesmenController from '../app/Controllers/Http/SessionSalesmenController'
+import SearchNewProductsController from '../app/Controllers/Http/SearchNewProductsController'
+import SeachProductByCategoriesController from '../app/Controllers/Http/SearchProductByCategoriesController'
 
 Route.get('/', async () => {
   return { hello: 'world' }
@@ -38,6 +40,8 @@ Route.put('/products', new ProductsController().Update).middleware('Auth')
 Route.delete('/products', new ProductsController().Destroy)
 Route.get('/products/show/salesman', new ProductsController().ShowSalesmanOnly)
 Route.get('/products/show/only', new ProductsController().ShowOnlyProduct)
+Route.post('/products/search/category', new SeachProductByCategoriesController().Index)
+Route.get('/new/products', new SearchNewProductsController().Index)
 
 // Favorites - checked
 Route.post('/favorites', new FavoritesController().Store).middleware('Auth')
