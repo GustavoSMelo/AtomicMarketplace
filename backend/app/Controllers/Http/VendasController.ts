@@ -22,6 +22,10 @@ export default class VendasController {
       return response.status(401).json({Error: 'prodduct not found'})
     }
 
+    product.amount -= 1
+
+    await product.save()
+
     const venda = new VendasModel()
 
     //eslint-disable-next-line
