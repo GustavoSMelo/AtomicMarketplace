@@ -14,3 +14,7 @@ html, body {
   box-sizing: border-box;
   font-family: ubuntu;
 }
+
+a {
+  text-decoration: none;
+}
