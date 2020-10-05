@@ -78,3 +78,16 @@ section > .Touchable{
   font-size: 24pt;
   color: #000;
 }
+
+.ProfileIcon{
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.ProfileIcon > h1 {
+  color:#fff;
+  font-size: 12pt;
+}

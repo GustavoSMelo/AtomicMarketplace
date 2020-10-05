@@ -42,7 +42,7 @@ const Navbar = () => {
                 <FaShoppingBag />
               </Link>
               <Link className='Touchable' to='/user/profile'>
-                <FaRegUserCircle />
+                <FaRegUserCircle color='#000' /> <h1></h1>
               </Link>
             </section>
           </header>
