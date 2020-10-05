@@ -48,7 +48,7 @@ const UserProfile = () => {
       <Container>
         <aside>
           <ul>
-            <Link className='Link' to='/follow/product'><li> <FaTruckLoading /> Acompanhe seus pedidos</li></Link>
+            {/*<Link className='Link' to='/follow/product'><li> <FaTruckLoading /> Acompanhe seus pedidos</li></Link>*/}
             <Link className='Link' to='/buy/historic'><li> <FaClock /> Historico de pedidos</li></Link>
             <Link className='Link' to='/favorites'><li> <FaHeart /> Produtos favoritados</li></Link>
             <Link className='Link' onClick={() => handlerLogoutButtonClick()} to='/'><li> <FaPowerOff /> Logout(Sair) </li></Link>
@@ -57,12 +57,10 @@ const UserProfile = () => {
         <article>
           <section className='WalletContainer'>
             <span>
-              <FaWallet size={42} />
-              <h1>120.00 BRL</h1>
             </span>
             <span>
               <section className='RowContainerAlignRight'>
-                <h2>Name of user</h2>
+                <h2>{name}</h2>
               </section>
               <figure>
                 <FaRegUserCircle size={84} />
@@ -70,7 +68,7 @@ const UserProfile = () => {
             </span>
           </section>
 
-          <h1>Dados sobre Name of user</h1>
+          <h1>Dados sobre {name}</h1>
           <div>
             <span>
               <h2>Nome completo: </h2> <h3>{name}</h3>
