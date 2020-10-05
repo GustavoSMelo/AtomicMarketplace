@@ -48,13 +48,12 @@ const CreateProduct: React.FC = () => {
 
       return setStatus(<PopupCard backgroundcolor='#51B556' textcolor='#295C2C' content='Produto criado com sucesso'/>)
     } catch (err) {
-      setStatus(<PopupCard backgroundcolor='#FA6450' textcolor='#5C241D' content='Produto criado com sucesso'/>)
+      setStatus(<PopupCard backgroundcolor='#FA6450' textcolor='#5C241D' content='Erro ao criar um novo produto, verifique os campos e espere a imagem carregar, e tente novamente'/>)
     }
   }
 
   return (
     <>
-      <Navbar />
       <Container>
         <h3>Bem vindo Mateus, crie seu produto</h3>
         <form>
