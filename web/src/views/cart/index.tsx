@@ -77,7 +77,9 @@ const Cart = () => {
                   <h2>{product.brand}</h2>
 
                   <button className='buy' type='button'>
-                    Continuar para compra <FaArrowRight />
+                    <Link to={`/confirm/buy/${product.id}`}>
+                      Continuar para compra <FaArrowRight />
+                    </Link>
                   </button>
 
                   <button className='remove' type='button' onClick={() => removeItemFromCart(product.id)}>

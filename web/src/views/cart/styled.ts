@@ -125,4 +125,8 @@ export const Container = styled.main<{ haveProduct: boolean }>`
     transition: 250ms;
   }
 
+  .buy > a{
+    color: #fff;
+  }
+
 `
