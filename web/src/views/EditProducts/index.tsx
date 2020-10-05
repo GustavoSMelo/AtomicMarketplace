@@ -7,6 +7,7 @@ import { RouteComponentProps } from 'react-router-dom'
 import api from '../../api'
 import ProductInterface from '../../interfaces/ProductInterface'
 import PopupCard from '../../components/popupStatusCard'
+import { copyFile } from 'fs'
 
 const EditProducts: React.FC<RouteComponentProps> = ({ match }) => {
   const [product_name, setProduct_name] = useState('')
@@ -50,7 +51,7 @@ const EditProducts: React.FC<RouteComponentProps> = ({ match }) => {
 
       const { id } = match.params as any
 
-      await api.put('/products', fd, {
+      const response_log = await api.put('/products', fd, {
         headers: {
           authorization: `Bearer ${localStorage.getItem('token')}`,
           searchid: id
@@ -58,8 +59,12 @@ const EditProducts: React.FC<RouteComponentProps> = ({ match }) => {
       })
 
       setStatus(<PopupCard backgroundcolor='#51B556' textcolor='#295C2C' content='Produto editado com sucesso'/>)
+
+      console.log({log: response_log})
     } catch (err) {
       setStatus(<PopupCard backgroundcolor='#FA6450' textcolor='#5C241D' content='Falha ao editar produto, verifique os campos e tente novamente'/>)
+
+      console.log({Error: err })
     }
   }
 
@@ -78,12 +83,14 @@ const EditProducts: React.FC<RouteComponentProps> = ({ match }) => {
   }, [status])
 
   return <>
-    <Navbar />
     <Container>
       <h3>Bem vindo a edição de Produto</h3>
       <small>Caso precise alterar apenas um campo, apenas altere o mesmo, não á necessidade de escrever tudo novamente :) </small>
-
       <form>
+        <span>
+          <label>Image: </label>
+          <input type="file" name="upload" id="upload" accept="image/*" className="dropzone" onChange={e => handleImageChange(e)} />
+        </span>
         <span>
           <label>Nome: </label>
           <Input onTextChanged={setProduct_name} value={product_name} type="text" placeholder="Nome do Produto" />
@@ -100,11 +107,6 @@ const EditProducts: React.FC<RouteComponentProps> = ({ match }) => {
           <label>Marca: </label>
           <Input onTextChanged={setBrand} value={brand} type="text" placeholder="Marca" />
         </span>
-        <span>
-          <label>Image: </label>
-          <input type="file" name="upload" id="upload" accept="image/*" className="dropzone" onChange={e => handleImageChange(e)} />
-        </span>
-
         <span>
           <label>Categoria: </label>
           <select onChange={e => setKind_prod(e.target.value)} value={kind_prod} name="categorias" className="categorias">
