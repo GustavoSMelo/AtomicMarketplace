@@ -71,7 +71,10 @@ export default class ProductsController {
       //eslint-disable-next-line
       let product_image_name = new Date().getTime().toString(16)
       product_image_name += `${(Math.random() * 16).toString(16)}.${product_image?.extname}`
-      product_image.move(Application.tmpPath('../public/uploads'))
+
+      await product_image?.move(Application.tmpPath('../public/uploads'), {
+        name: product_image_name,
+      })
 
       product.product_image = product_image_name
     }
@@ -84,12 +87,16 @@ export default class ProductsController {
   public async Index () {
     const allProducts = await ProductsModel.all()
 
-    return allProducts
+    const filterProducts = allProducts.filter(products => products.amount > 0)
+
+    return filterProducts
   }
 
   public async Show ({ request } : HttpContextContract){
     const {product_name} = request.all()
     const allProducts = await ProductsModel.query().where('product_name', 'like', `%${product_name}%`)
+
+    const filterProducts = allProducts.filter(products => products.amount > 0)
 
     return allProducts
   }
@@ -112,6 +119,8 @@ export default class ProductsController {
     const {salesman_id} = request.request.headers
 
     const products = await ProductsModel.query().where('salesman_id', salesman_id)
+
+    const filterProducts = products.filter(product => product.amount > 0)
 
     return products
   }
