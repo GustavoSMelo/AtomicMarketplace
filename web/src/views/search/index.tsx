@@ -47,6 +47,22 @@ const Search = () => {
     }
   }
 
+  const handleSearchProductByCategories = async (category: String) => {
+    const response = await api.post<ProductInterface[]>('/products/search/category', {
+      category
+    })
+
+    setNeedHelp(false)
+    setProducts(response.data)
+  }
+
+  const handleNewItens = async () => {
+    const response = await api.get<ProductInterface[]>('/new/products')
+
+    setProducts(response.data)
+    setNeedHelp(false)
+  }
+
   const addProductInCart = (productid : Number) => {
     const cart = localStorage.getItem('cart')
     const arryCart = cart ? cart.split(',') : []
@@ -124,63 +140,63 @@ const Search = () => {
             Alguns tópicos para lhe auxiliar :)
           </h1>
           <ul data-testid='list'>
-            <li onClick={() => setNeedHelp(false)}>
+            <li onClick={() => handleNewItens()}>
               <figure>
                 <img src={NovosItens} />
                 <figcaption>Novos itens</figcaption>
               </figure>
             </li>
 
-            <li>
+            <li onClick={() => handleSearchProductByCategories('Roupa casuais')}>
               <figure>
                 <img src={RoupaCasual} />
                 <figcaption>Roupas Casuais</figcaption>
               </figure>
             </li>
 
-            <li>
+            <li onClick={() => handleSearchProductByCategories('Roupa esportiva')}>
               <figure>
                 <img src={RoupaEsportiva} />
                 <figcaption>Roupas Esportivas</figcaption>
               </figure>
             </li>
 
-            <li>
+            <li onClick={() => handleSearchProductByCategories('Sapato social feminino')}>
               <figure>
                 <img src={SapatosFemininosSocial} />
                 <figcaption>Sapatos Sociais femininos</figcaption>
               </figure>
             </li>
 
-            <li>
+            <li onClick={() => handleSearchProductByCategories('Sapato esportivo')}>
               <figure>
                 <img src={SapatoEsportivo} />
                 <figcaption>Sapatos esportivos</figcaption>
               </figure>
             </li>
 
-            <li>
+            <li onClick={() => handleSearchProductByCategories('Sapato social')}>
               <figure>
                 <img src={SapatoSocial} />
                 <figcaption>Sapatos sociais</figcaption>
               </figure>
             </li>
 
-            <li>
+            <li onClick={() => handleSearchProductByCategories('Vestidos')}>
               <figure>
                 <img src={Vestidos} />
                 <figcaption>Vestidos</figcaption>
               </figure>
             </li>
 
-            <li>
+            <li onClick={() => handleSearchProductByCategories('Roupa sociais')}>
               <figure>
                 <img src={RoupaSocial} />
                 <figcaption>Roupas Sociais</figcaption>
               </figure>
             </li>
 
-            <li>
+            <li onClick={() => handleSearchProductByCategories('Sapato casuais')}>
               <figure>
                 <img src={SapatoCasual} />
                 <figcaption>Sapatos casuais</figcaption>
@@ -190,7 +206,7 @@ const Search = () => {
         </section>
         <article className='SearchContainer'>
           <section className='RowContainer'>
-            <h2>Resultados da pesquisa: Novos Itens</h2>
+            <h2>Resultados da pesquisa: </h2>
             <small>{products.length} Item(ns) encontrado(s) na sua pesquisa</small>
           </section>
           <ul className='SearchProducts'>
