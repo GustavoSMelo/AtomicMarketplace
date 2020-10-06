@@ -6,9 +6,11 @@ interface IntputProps {
   type: string;
   min?: string;
   onTextChanged?: any;
-  value?: string | number
+  value?: string | number;
+  max?: string;
 }
-const input: React.FC<IntputProps> = ({ placeholder, type, min, onTextChanged, value }) => {
+
+const input: React.FC<IntputProps> = ({ placeholder, type, min, onTextChanged, value, max }) => {
   return (
     <>
       <input data-testid='input-component'
@@ -18,6 +20,7 @@ const input: React.FC<IntputProps> = ({ placeholder, type, min, onTextChanged, v
         type={type}
         placeholder={placeholder}
         min={min}
+        max={max}
         required />
     </>
   )
