@@ -19,7 +19,6 @@ const UserProfile = () => {
 
   const getUserDataByApi = async () => {
     const response = await api.post('/user/show', { searchid: localStorage.getItem('iduser') })
-    console.log(response.data)
     setName(response.data.name)
     setEmail(response.data.email)
     setState(response.data.state)
