@@ -1,23 +1,40 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import Navbar from '../../components/navbar'
 import { Container } from './styled'
 import { FaHeart, FaStar } from 'react-icons/fa'
 import Image from '../../assets/images/bannershoes2.png'
 import HeartImage from '../../assets/images/icons/coracao.svg'
 import HeartBroken from '../../assets/images/sadImage.png'
+import api from '../../api/index'
 
 const FavoritedProducts = () => {
+  const [favorites, setFavorites] = useState([]);
+const token = localStorage.getItem("token")
+  useEffect(()=>{
+    api.get('favorites',{
+      headers:{
+        Authorization: token,
+      },
+    })
+    .then((res)=>{
+      setFavorites(res.data)
+    })
+  },[token])
   return (
     <>
       <Navbar />
       <Container hasFavorites={true}>
+
+
+
         <span className='title'>
           <figure>
             <img src={HeartImage} alt='Heart' />
           </figure>
           <h1>Aqui estão os produtos que você favoritou </h1>
         </span>
-        <section>
+        {favorites.map((favorite)=>(
+        <section key={favorite.id}>
           <article className='Card'>
             <span className='HeaderCard'>
               <span>
@@ -30,58 +47,17 @@ const FavoritedProducts = () => {
             <figure>
               <img src={Image} alt='Favorited Product' />
             </figure>
-            <h2>Name of product</h2>
-            <button>Detalhes</button>
+            <h2>{favorite.name}</h2>
+            <button>{favorite.details}</button>
           </article>
 
-          <article className='Card'>
-            <span className='HeaderCard'>
-              <span>
-                <FaHeart color='#f00' size={20} />
-              </span>
-              <span>
-                <FaStar color='#FFF36B' size={20} /> 4.0
-              </span>
-            </span>
-            <figure>
-              <img src={Image} alt='Favorited Product' />
-            </figure>
-            <h2>Name of product</h2>
-            <button>Detalhes</button>
-          </article>
 
-          <article className='Card'>
-            <span className='HeaderCard'>
-              <span>
-                <FaHeart color='#f00' size={20} />
-              </span>
-              <span>
-                <FaStar color='#FFF36B' size={20} /> 4.0
-              </span>
-            </span>
-            <figure>
-              <img src={Image} alt='Favorited Product' />
-            </figure>
-            <h2>Name of product</h2>
-            <button>Detalhes</button>
-          </article>
 
-          <article className='Card'>
-            <span className='HeaderCard'>
-              <span>
-                <FaHeart color='#f00' size={20} />
-              </span>
-              <span>
-                <FaStar color='#FFF36B' size={20} /> 4.0
-              </span>
-            </span>
-            <figure>
-              <img src={Image} alt='Favorited Product' />
-            </figure>
-            <h2>Name of product</h2>
-            <button>Detalhes</button>
-          </article>
+
+
+
         </section>
+        ))}
         <article>
           <figure>
             <img src={HeartBroken} alt='Heart broken' />
