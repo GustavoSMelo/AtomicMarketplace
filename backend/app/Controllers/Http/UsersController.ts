@@ -28,7 +28,7 @@ export default class UsersController {
   public async Index({ request, response }: HttpContextContract) {
     const allUsers = await UserModel.all()
 
-    return response.json({ users: allUsers })
+    return allUsers
   }
 
   public async Update({ request, response }: HttpContextContract) {
