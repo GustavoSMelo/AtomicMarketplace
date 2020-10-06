@@ -18,6 +18,12 @@ figure{
   padding-top: 10px;
 }
 
+.logo{
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+}
+
 nav{
   display: flex;
   flex-direction: row;

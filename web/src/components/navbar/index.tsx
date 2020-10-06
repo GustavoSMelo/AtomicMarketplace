@@ -3,9 +3,12 @@ import { Link } from 'react-router-dom'
 import { FaSearch, FaRegUserCircle, FaShoppingBag } from 'react-icons/fa'
 import './style.css'
 import isLogged from '../../utils/VerifyLogin'
+import Logo from '../../assets/images/icons/logo.png'
+import { useHistory } from 'react-router-dom'
 
 const Navbar = () => {
   const [log, setLog] = useState(false)
+  const history = useHistory()
 
   const userHaveLogin = async () => {
     const response = await isLogged()
@@ -18,8 +21,8 @@ const Navbar = () => {
       return (
         <>
           <header>
-            <figure>
-              <h1>logo</h1>
+            <figure onClick={() => history.push('/')}>
+              <img className='logo' src={Logo} alt='logo'/>
             </figure>
             <nav>
               <Link className='Link' to='/'>
