@@ -2,7 +2,7 @@ interface UserInterface {
   id: number,
   email: string,
   address: string,
-  address_number: string,
+  address_number: number,
   cep: string,
   cellphone: string,
   state: string,
