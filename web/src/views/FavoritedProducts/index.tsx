@@ -9,6 +9,8 @@ import api from '../../api/index'
 
 const FavoritedProducts = () => {
   const [favorites, setFavorites] = useState([]);
+  const [products, setProducts] = useState([]);
+
 const token = localStorage.getItem("token")
   useEffect(()=>{
     api.get('favorites',{
@@ -20,6 +22,19 @@ const token = localStorage.getItem("token")
       setFavorites(res.data)
     })
   },[token])
+
+  useEffect(()=>{
+    api.get('products',{
+      headers:{
+        Authorization: token,
+      },
+    })
+    .then((res)=>{
+      setProducts(res.data)
+    })
+  },[token])
+
+
   return (
     <>
       <Navbar />
@@ -33,8 +48,17 @@ const token = localStorage.getItem("token")
           </figure>
           <h1>Aqui estão os produtos que você favoritou </h1>
         </span>
-        {favorites.map((favorite)=>(
-        <section key={favorite.id}>
+
+
+        {products.map((product)=>(
+
+
+
+        <section key={product.id}>
+          {favorites.find(
+            (favorite)=> favorite.id === product.id
+
+        )?(
           <article className='Card'>
             <span className='HeaderCard'>
               <span>
@@ -44,26 +68,26 @@ const token = localStorage.getItem("token")
                 <FaStar color='#FFF36B' size={20} /> 4.0
               </span>
             </span>
+
             <figure>
               <img src={Image} alt='Favorited Product' />
             </figure>
-            <h2>{favorite.name}</h2>
-            <button>{favorite.details}</button>
+            <h2>{product.name}</h2>
+            <button>{product.details}</button>
           </article>
-
-
-
-
-
-
-        </section>
-        ))}
-        <article>
+        ):(
+          <article>
           <figure>
             <img src={HeartBroken} alt='Heart broken' />
           </figure>
           <h1>Você não tem nenhum item favoritado</h1>
         </article>
+        )}
+        </section>
+ ))}
+
+
+
       </Container>
     </>
   )
