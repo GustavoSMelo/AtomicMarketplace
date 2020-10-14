@@ -43,7 +43,7 @@ const Search = () => {
       setNeedHelp(false)
       setFavorites(response_favorite.data)
     } catch (err) {
-      console.log({Error: err})
+      console.log({ Error: err })
     }
   }
 
