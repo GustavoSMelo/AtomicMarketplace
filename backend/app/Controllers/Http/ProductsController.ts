@@ -94,11 +94,11 @@ export default class ProductsController {
 
   public async Show ({ request } : HttpContextContract){
     const {product_name} = request.all()
-    const allProducts = await ProductsModel.query().where('product_name', 'like', `%${product_name}%`)
+    const allProducts = await ProductsModel.query().where('product_name', 'like',`%${product_name}%`)
 
     const filterProducts = allProducts.filter(products => products.amount > 0)
 
-    return allProducts
+    return filterProducts
   }
 
   public async Destroy ({request, response} : HttpContextContract){
