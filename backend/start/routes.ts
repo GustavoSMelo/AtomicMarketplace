@@ -18,7 +18,7 @@ Route.get('/', async () => {
 //User routes
 Route.post('/user', new UserController().Store).middleware('newUser')
 Route.get('/user', new UserController().Index)
-Route.put('/user', new UserController().Update).middleware('editUser')
+Route.put('/user', new UserController().Update).middleware('editUser').middleware('Auth')
 Route.delete('/user', new UserController().Destroy).middleware('deleteShowUser')
 Route.post('/user/show', new UserController().Show).middleware('deleteShowUser')
 
