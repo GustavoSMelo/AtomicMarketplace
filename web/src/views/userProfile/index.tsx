@@ -101,7 +101,7 @@ const UserProfile = () => {
               <h2>bairro: </h2> <h3>{neighborhood}</h3>
             </span>
 
-            <button type="button"><FaPencilAlt /> Editar</button>
+            <button type="button" onClick={() => history.push('/edit/user')}><FaPencilAlt /> Editar</button>
           </div>
         </article>
       </Container>
