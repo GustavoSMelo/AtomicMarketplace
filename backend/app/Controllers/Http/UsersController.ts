@@ -3,7 +3,7 @@ import UserModel from '../../Models/User'
 import bcrypt from 'bcryptjs'
 
 export default class UsersController {
-  public async Store({ request }: HttpContextContract) {
+  public async Store ({ request }: HttpContextContract) {
     const data = request.all()
 
     const user = new UserModel()
@@ -25,63 +25,62 @@ export default class UsersController {
     return user
   }
 
-  public async Index({ request, response }: HttpContextContract) {
+  public async Index () {
     const allUsers = await UserModel.all()
 
     return allUsers
   }
 
-  public async Update({ request, response }: HttpContextContract) {
+  public async Update ({ request, response }: HttpContextContract) {
+    try {
+      const newdata = request.all()
+      const { searchid } = request.request.headers
 
-    const newdata = request.all()
-    const { searchid } = request.request.headers
+      const user = await UserModel.findOrFail(searchid)
 
-    const user = await UserModel.findOrFail(searchid)
+      if (newdata.name) {
+        user.name = newdata.name
+      }
 
-    if (newdata.name) {
-      user.name = newdata.name
+      if (newdata.email) {
+        user.email = newdata.email
+      }
+
+      if (newdata.password) {
+        const passwordHash = await bcrypt.hash(newdata.password, 8)
+        user.password = passwordHash
+      }
+
+      if (newdata.address) {
+        user.address = newdata.address
+      }
+
+      if (newdata.address_number) {
+        user.address_number = newdata.address_number
+      }
+
+      if (newdata.cep) {
+        user.cep = newdata.cep
+      }
+
+      if (newdata.cellphone) {
+        user.cellphone = newdata.cellphone
+      }
+
+      if (newdata.state) {
+        user.state = newdata.state
+      }
+
+      if (newdata.neighborhood) {
+        user.neighborhood = newdata.neighborhood
+      }
+      return await user.save()
+    } catch (err) {
+      return response.status(400).json({Error: err})
     }
-
-    if (newdata.email) {
-      user.email = newdata.email
-    }
-
-    if (newdata.password) {
-      const passwordHash = await bcrypt.hash(newdata.password, 8)
-      user.password = passwordHash
-    }
-
-    if (newdata.address) {
-      user.address = newdata.address
-    }
-
-    if (newdata.address_number) {
-      user.address_number = newdata.address_number
-    }
-
-    if (newdata.cep) {
-      user.cep = newdata.cep
-    }
-
-    if (newdata.cellphone) {
-      user.cellphone = newdata.cellphone
-    }
-
-    if (newdata.state) {
-      user.state = newdata.state
-    }
-
-    if (newdata.neighborhood) {
-      user.neighborhood = newdata.neighborhood
-    }
-
-
-
-
-    return await user.save();
   }
 
-  public async Destroy({ request, response }: HttpContextContract) {
+  public async Destroy ({ request, response }: HttpContextContract) {
     const { searchid } = request.request.headers
 
     try {
@@ -94,11 +93,11 @@ export default class UsersController {
     }
   }
 
-  public async Show({ request, response }: HttpContextContract) {
+  public async Show ({ request, response }: HttpContextContract) {
     const { searchid } = request.all()
 
     try {
-      const user = UserModel.findOrFail(searchid)
+      const user = await UserModel.find(searchid)
       return user
     } catch (err) {
       return response.status(404).json({ Error: 'user not found' })
