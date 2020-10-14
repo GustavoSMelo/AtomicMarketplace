@@ -65,6 +65,7 @@ const FavoritedProducts = () => {
                 <FaStar color='#FFF36B' size={20} /> 4.0
               </span>
             </span>
+
             <figure>
               <img src={`http://localhost:3333/uploads/${prod.product_image}`} alt='Favorited Product' />
             </figure>
@@ -72,7 +73,6 @@ const FavoritedProducts = () => {
             <button> <Link to={`/product/details/${prod.id}`}><FaStream /> Detalhes</Link></button>
           </article>
         </section>)}
-
         <article>
           <figure>
             <img src={HeartBroken} alt='Heart broken' />
