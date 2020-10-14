@@ -16,6 +16,7 @@ import Search from '../views/search/index'
 import BuyHistoric from '../views/BuyHistoric'
 import Cart from '../views/cart'
 import ConfirmBuying from '../views/confirmBuying'
+import EditUser from '../views/EditUser'
 
 import ProductDetails from '../views/productDetails'
 import CreateProduct from '../views/createProduct'
@@ -54,6 +55,7 @@ const Routes = () => {
         <Route exact path='/buy/product/detail' component={BuyedProductDetail} />
         <Route exact path='/buy/historic' component={BuyHistoric} />
         <Route exact path='/favorites' component={FavoritedProducts} />
+        <Route exact path='/edit/user' component={EditUser} />
 
         <Route exact path='/greetings' component={Greetings} />
       </Switch>
