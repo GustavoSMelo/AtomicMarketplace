@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { FaSearch, FaRegUserCircle, FaShoppingBag } from 'react-icons/fa'
 import './style.css'
 import isLogged from '../../utils/VerifyLogin'
 import Logo from '../../assets/images/icons/logo.png'
-import { useHistory } from 'react-router-dom'
 
 const Navbar = () => {
   const [log, setLog] = useState(false)
@@ -24,18 +23,6 @@ const Navbar = () => {
             <figure onClick={() => history.push('/')}>
               <img className='logo' src={Logo} alt='logo'/>
             </figure>
-            <nav>
-              <Link className='Link' to='/'>
-                <h2>
-                  Camisas
-                </h2>
-              </Link>
-              <Link className='Link' to='/'>
-                <h2>
-                  Sapatos
-                </h2>
-              </Link>
-            </nav>
 
             <section>
               <Link className='Touchable' to='/search'>
@@ -55,20 +42,8 @@ const Navbar = () => {
       return (
         <header>
           <figure>
-            <h1>logo</h1>
+            <img className='logo' src={Logo} alt='logo'/>
           </figure>
-          <nav>
-            <Link className='Link' to='/'>
-              <h2>
-                Camisas
-              </h2>
-            </Link>
-            <Link className='Link' to='/'>
-              <h2>
-                Sapatos
-              </h2>
-            </Link>
-          </nav>
 
           <section>
             <Link className='Touchable' to='/search'>
