@@ -45,7 +45,7 @@ export const Container = styled.main<{hasFavorites : boolean}>`
     width: 100%;
   }
 
-  section > .Card > button{
+  section > .Card > button {
     width: 200px;
     align-items: center;
     justify-content: center;
@@ -55,6 +55,12 @@ export const Container = styled.main<{hasFavorites : boolean}>`
     padding: 15px;
     margin: 15px;
     border-radius: 5px;
+    font-weight: bold;
+    font-size: 16pt;
+  }
+
+  section > .Card > button > a {
+    color: #000;
   }
 
   article {
