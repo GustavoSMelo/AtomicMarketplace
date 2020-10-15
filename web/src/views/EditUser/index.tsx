@@ -71,7 +71,7 @@ const EditUser:React.FC = () => {
             <label>Nome: </label><Input placeholder='insert your name here' type='text' value={name} onTextChanged={setName}/>
           </span>
           <span>
-            <label>Nome: </label><Input placeholder='insert your email here' type='text' value={email} onTextChanged={setEmail}/>
+            <label>Email: </label><Input placeholder='insert your email here' type='text' value={email} onTextChanged={setEmail}/>
           </span>
           <span>
             <label>Endereço: </label><Input placeholder='insert your address here' type='text' value={address} onTextChanged={setAddress}/>

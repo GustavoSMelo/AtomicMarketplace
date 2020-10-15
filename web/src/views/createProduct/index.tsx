@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Navbar from '../../components/navbar'
 import Button from '../../components/button'
 import Input from '../../components/input'
 import { RiImageAddLine } from 'react-icons/ri'
@@ -55,7 +54,7 @@ const CreateProduct: React.FC = () => {
   return (
     <>
       <Container>
-        <h3>Bem vindo Mateus, crie seu produto</h3>
+        <h3>Bem vindo(a) vendedor(a), crie seu produto</h3>
         <form>
           <input type="file" name="upload" id="upload" accept="image/*" className="dropzone" onChange={e => handleImageChange(e)} />
           <label htmlFor="upload"><RiImageAddLine fontSize={20} className="upload-image" /> Imagens do produto</label>

@@ -63,4 +63,21 @@ export const Container = styled.main`
   .descricao::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
- `
+
+  @media screen and (max-width: 1140px) {
+    padding: 10px;
+    text-align: center;
+  }
+
+  @media screen and (max-width: 920px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+
+    .upload-image,.input-group, .descricao  {
+      width: 80%
+    }
+  }
+`

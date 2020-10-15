@@ -129,4 +129,45 @@ export const Container = styled.main<{ haveProduct: boolean }>`
     color: #fff;
   }
 
+  @media screen and (max-width: 970px) {
+    section {
+      width: 100%;
+    }
+
+    section > img{
+      width: 100%;
+    }
+
+    section > h1 {
+      font-size: 14pt;
+    }
+
+    section > h2 {
+      font-size: 12pt;
+    }
+
+    article {
+      align-items: center;
+      justify-content: center;
+    }
+    article > ul > li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    article > ul > li {
+      padding: 30px;
+    }
+
+    article > ul > li > span {
+      width: 100%;
+    }
+
+    article > ul > li > span > .remove, article > ul > li > span > .buy{
+      width: 100%;
+    }
+  }
+
 `

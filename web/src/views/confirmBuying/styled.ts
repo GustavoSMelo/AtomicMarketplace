@@ -55,4 +55,35 @@ export const Container = styled.main`
     cursor: pointer;
     color: #fff;
   }
+
+  @media screen and (max-width: 970px) {
+    h1 {
+      margin-top: 30px;
+    }
+
+    article {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    article > section > span > select {
+      width: 100%;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      padding: 10px;
+    }
+
+    article > section {
+      display: flex;
+      align-items: center;
+      justify-content: initial;
+      text-align: center;
+    }
+
+    section > button {
+      width: 100%;
+      margin: 15px;
+    }
+  }
 `

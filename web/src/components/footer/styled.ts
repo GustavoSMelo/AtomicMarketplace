@@ -46,4 +46,36 @@ export const Container = styled.footer`
     align-items: center;
     justify-content: center;
   }
+
+  @media screen and (max-width: 1160px) {
+    padding: 10px;
+
+    aside {
+      padding: 10px
+    }
+
+    article {
+      padding: 10px;
+    }
+  }
+
+  @media screen and (max-width: 970px) {
+    flex-direction: column;
+
+    aside, article, section {
+      border: none;
+      padding: 0px;
+    }
+
+    article {
+      text-align: center;
+    }
+
+    article > h2 {
+      font-size: 14pt;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
 `

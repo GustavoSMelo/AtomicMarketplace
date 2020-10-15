@@ -29,6 +29,8 @@ export const Container = styled.main`
     text-align: center;
     cursor: pointer;
     color: #0a0a0a;
+    width: 100px;
+    height: 100px;
   }
 
   section > .link {
@@ -98,6 +100,32 @@ export const Container = styled.main`
   article > ul > li > span > *{
     margin: 15px;
     cursor: pointer;
+  }
+
+  @media screen and (max-width: 880px) {
+    section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    article > ul > li,article > ul > li > figure  {
+      flex-direction: column;
+    }
+
+    article > ul > li > figure, article > ul > li > figure > img {
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 380px) {
+    section{
+      display: flex;
+      flex-direction: column;
+    }
+
+    section > .link > figure {
+      width: 200px;
+    }
   }
 
 `

@@ -12,8 +12,11 @@ import {
   FaTelegram,
   FaYoutube
 } from 'react-icons/fa'
+import { useHistory } from 'react-router-dom'
 
 const Footer = () => {
+  const history = useHistory()
+
   return (
     <Container>
       <aside>
@@ -40,9 +43,8 @@ const Footer = () => {
       <article>
         <h2>Area de funcionarios</h2>
         <ul>
-          <li>Entrar na conta de vendedor</li>
-          <li>Se registrar como vendedor</li>
-          <li>Area restrita</li>
+          <li onClick={() => history.push('/salesman/login')}>Entrar na conta de vendedor</li>
+          <li onClick={() => history.push('/salesman/signup')}>Se registrar como vendedor</li>
         </ul>
       </article>
       <article>

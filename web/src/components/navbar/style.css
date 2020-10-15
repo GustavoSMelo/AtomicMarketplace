@@ -10,6 +10,8 @@ header {
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
   z-index: 1;
+  overflow-x: none;
+  width: 100%;
 }
 
 figure{
@@ -96,4 +98,10 @@ section > .Touchable{
 .ProfileIcon > h1 {
   color:#fff;
   font-size: 12pt;
+}
+
+@media screen and (max-width: 600px) {
+  .Button {
+    margin-right: 50px;
+  }
 }

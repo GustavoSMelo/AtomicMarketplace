@@ -163,4 +163,35 @@ export const Container = styled.main<{ needHelp: boolean }>`
     color: #000;
     text-decoration: none !important;
   }
+
+  @media screen and (max-width: 800px) {
+    .HelpSearch > ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .HelpSearch > h1 {
+      font-size: 14pt;
+      text-align: center;
+    }
+
+    .InputSearch > input {
+      width: 75%;
+      font-size: 14pt;
+      margin-left: 10px;
+    }
+
+    .InputSearch > button {
+      width: 25%;
+    }
+
+    .SearchContainer > ul{
+      display: flex;
+      flex-direction: column;
+    }
+
+    .RowContainer > h2{
+      font-size: 14pt;
+    }
+  }
 `

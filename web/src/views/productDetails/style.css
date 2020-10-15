@@ -13,7 +13,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 }
 
 .photo{
@@ -165,4 +164,23 @@
   border: none;
   border-radius: 5px;
   background-color: #60A2E0;
+}
+
+@media screen and (max-width: 1080px) {
+  .container {
+    padding: 30px;
+  }
+
+  .product {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .photo {
+    width: 75%;
+  }
+
+  .informations{
+    width: 100%;
+  }
 }

@@ -105,6 +105,33 @@ export const Banner = styled.section<{ color: string }>`
     text-align: center;
     margin: 10px;
   }
+
+  @media screen and (max-width: 700px) {
+    flex-direction: column-reverse;
+    justify-content: center;
+    margin-bottom: 300px;
+
+    section{
+      width: 100%;
+    }
+
+    section > h1 {
+      display: none;
+    }
+
+    article {
+      width: 100%;
+      border-radius: 0px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 300px;
+    }
+
+    article > img {
+      position: relative;
+      left: 5%;
+    }
+  }
 `
 export const Container = styled.main`
   padding: 50px;
@@ -188,8 +215,21 @@ export const Container = styled.main`
   }
 
   @media screen and (max-width: 600px){
+    padding: 0px;
+
     ul{
-      grid-template-columns: repeat(1,1fr);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    ul > *{
+      margin-top: 100px;
+    }
+
+    .list-card{
+      padding: 5px;
     }
   }
 `

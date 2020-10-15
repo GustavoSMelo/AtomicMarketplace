@@ -29,7 +29,7 @@ const ListProduct: React.FC<listProductProps> = ({ image, nameProduct, date, qua
         <img src={image} alt="imagem do produto" />
         <div className="data-product">
           <p>Nome do Produto: <strong>{nameProduct}</strong></p>
-          <p className="date-product">Adicionado em: <strong>{date}</strong></p>
+          <p className="date-product">Adicionado em: <strong>{date.substring(0, 10)}</strong></p>
           <p>Quantidade: <strong>{quantity}</strong></p>
         </div>
         <div className="buttons-delete">

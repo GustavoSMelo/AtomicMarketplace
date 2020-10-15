@@ -42,4 +42,24 @@ export const Container = styled.main`
     background-color: #202020;
     transition: 0.35s;
   }
+
+  @media screen and (max-width: 600px) {
+    form > span {
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+      align-items: center;
+      margin: auto;
+    }
+
+    form > span > .input-data {
+      width: 100%;
+      margin: 5px;
+    }
+
+    form > button {
+      width: 70%;
+      margin: auto;
+    }
+  }
 `

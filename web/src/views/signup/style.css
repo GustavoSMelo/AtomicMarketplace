@@ -81,3 +81,26 @@
   }
 
 }
+
+@media screen and (max-width: 870px) {
+  .container-signup .form {
+    flex-direction: column;
+  }
+
+  .container-signup .form a, .container-signup .form img {
+    display: none;
+  }
+
+  .form form {
+    width: 100%;
+    margin-top: 130px;
+    margin-right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form form > * {
+    width: 70%;
+  }
+}

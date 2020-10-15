@@ -41,7 +41,7 @@ const Navbar = () => {
     } else {
       return (
         <header>
-          <figure>
+          <figure onClick={() => history.push('/')}>
             <img className='logo' src={Logo} alt='logo'/>
           </figure>
 

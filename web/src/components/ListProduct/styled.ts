@@ -14,14 +14,14 @@ export const Main = styled.main`
 
   section .image-product{
     background-color: #ccc;
-  padding: 5% 3% 5%;
+    padding: 5% 3% 5%;
     border-radius:5px;
     margin-right:2rem;
   }
   section .data-product{
     display:flex;
     width:600px;
-  max-width:600px;
+    max-width:600px;
     justify-content:space-between;
   }
   section .data-product>p{
@@ -41,7 +41,7 @@ export const Main = styled.main`
   }
   .buttons-delete{
     width:320px;
-  max-width:320px;
+    max-width:320px;
   }
   section .buttons-delete>button:hover{
     background-color: #000;
@@ -55,12 +55,30 @@ export const Main = styled.main`
     text-decoration:none;
     color: #000;
   }
-  @media(max-width:1150px){
+  @media(max-width:970px){
     .date-product{
       display:none;
     }
     .buttons-delete{
       max-width:110px;
+    }
+  }
+
+  @media screen and (max-width: 680px) {
+    section {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 100%;
+    }
+
+    section .data-product{
+      flex-direction: column;
+    }
+
+    section .data-product p {
+      font-size: 16pt;
     }
   }
 `

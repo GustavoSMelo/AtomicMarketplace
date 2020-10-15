@@ -122,4 +122,37 @@ export const Container = styled.main`
     padding: 15px;
     font-size: 18pt;
   }
+
+  @media screen and (max-width: 650px) {
+    flex-direction: column;
+
+    aside {
+      width: 100%;
+      border: none;
+    }
+
+    aside > ul {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-bottom: solid 1px #000;
+      width: 100%;
+    }
+    aside > ul > .Link {
+      width: 33%;
+    }
+    aside > ul > .Link > li {
+      border: none !important;
+      font-size: 12pt;
+      padding: 5px;
+      margin-top: 80px;
+    }
+
+    aside > ul > .Link:nth-child(1) {
+      border-right: solid 1px #000;
+    }
+    aside > ul > .Link:nth-child(2) {
+      border-right: solid 1px #000;
+    }
+  }
 `
