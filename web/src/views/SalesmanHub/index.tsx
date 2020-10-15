@@ -42,7 +42,7 @@ const SalesmanHub = () => {
       <h1>Seja bem vindo vendedor</h1>
       <h2>O que deseja fazer ?</h2>
       <section>
-        <Link className='link' to=''>
+        <Link className='link' to='/edit/salesman'>
           <figure>
             <img src={EditProfileIcon} alt='profile config icon' />
             <figcaption>Editar perfil</figcaption>
