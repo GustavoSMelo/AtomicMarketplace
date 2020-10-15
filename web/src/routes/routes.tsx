@@ -25,6 +25,7 @@ import EditProduct from '../views/EditProducts'
 import FollowProduct from '../views/FollowProducts'
 import BuyedProductDetail from '../views/BuyedProductDetail'
 import FavoritedProducts from '../views/FavoritedProducts'
+import EditSalesman from '../views/editSalesman'
 
 import Greetings from '../views/greetings'
 
@@ -49,6 +50,7 @@ const Routes = () => {
         <Route exact path='/salesman/delete/product' component={DeleteProduct} />
         <Route exact path='/salesman/edit/product/:id' component={EditProduct} />
         <Route exact path='/salesman/hub' component={SalesmanHub} />
+        <Route exact path='/edit/salesman' component={EditSalesman} />
 
         <Route exact path='/user/profile' component={UserProfile} />
         <Route exact path='/follow/product' component={FollowProduct} />
