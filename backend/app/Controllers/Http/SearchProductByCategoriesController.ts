@@ -7,6 +7,8 @@ export default class SearchProductByCategoriesController {
 
     const products = await ProductModel.query().where('kind_prod', category)
 
+    const filtredProducts = products.filter(prod => prod.amount > 0)
+
     return products
   }
 }
