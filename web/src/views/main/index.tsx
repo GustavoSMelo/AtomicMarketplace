@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Navbar from '../../components/navbar'
-import { FaRegHeart, FaStream, FaStar, FaShoppingBag, FaHeart } from 'react-icons/fa'
+import { FaRegHeart, FaStream, FaStar, FaShoppingBag, FaHeart, FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import { Container, Banner, Cart } from './styled'
 import blueshoes from '../../assets/images/bannershoes2.png'
@@ -125,9 +125,8 @@ const Main = () => {
             {descriptionBanner}
           </small>
 
-          <h2>120.00 BRL</h2>
           <button type='button'>
-            Adicione na sacola <FaShoppingBag />
+            Clique para pesquisar <FaSearch />
           </button>
 
           <ul>
@@ -161,16 +160,6 @@ const Main = () => {
                     <FaRegHeart color={'#f00'} />
                   </span>
                 }
-
-                <span>
-                  {Commentaries.length > 0 ? Commentaries.filter(comment => comment.id_product !== prod.id
-                  ).map(comment => {
-                    let sum = 0
-                    sum += comment.rating
-
-                    return sum / Commentaries.length
-                  }) : 0} <FaStar color={'#FFF36B'} />
-                </span>
               </span>
               <figure>
                 <img src={`http://localhost:3333/uploads/${prod.product_image}`} alt='product image' />
