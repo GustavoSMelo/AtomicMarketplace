@@ -1,4 +1,7 @@
-# Este readme ainda está em desenvolvimento
+<h1 align='center'>Atomic Marketplace</h1>
+
+<img src='./.github/scs1.png'/>
+<img src='./.github/scs2.png'/>
 
 ## Para testar o projeto é necessario ter:
 
